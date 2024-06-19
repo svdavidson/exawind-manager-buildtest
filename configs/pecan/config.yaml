@@ -1,0 +1,5 @@
+config:
+  # override URL fetch method
+  url_fetch_method: curl
+  db_lock_timeout: 300
+

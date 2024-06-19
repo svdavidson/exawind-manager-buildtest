@@ -1,0 +1,16 @@
+
+packages:
+  all:
+    compiler: [gcc@9.3.0 target=zen]
+    providers:
+      mpi: [openmpi]
+  slurm:
+    externals:
+    - spec: slurm@23.02.6
+      prefix: /usr
+    buildable: False
+  openmpi:
+    externals:
+    - spec: openmpi@4.1.4
+      prefix: /workint/users/l0542302/apps/exawind/2024-01/genoa_x86_64/openmpi-4.1.4
+

@@ -1,0 +1,28 @@
+compilers:
+- compiler:
+    paths:
+      cc: /usr/bin/gcc
+      cxx: /usr/bin/g++
+      f77: /usr/bin/gfortran
+      fc: /usr/bin/gfortran
+    operating_system: redhat8
+    target: x86_64
+    modules: []
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    spec: gcc@4.8.5
+- compiler:
+    paths:
+      cc: /apps/spack/x86_64/0.16.1/opt/spack/linux-centos7-skylake_avx512/gcc-8.4.0/gcc-8.4.0-x32l5zx2wrnc2y3ty5ccte2cf6bebqre/bin/gcc
+      cxx: /apps/spack/x86_64/0.16.1/opt/spack/linux-centos7-skylake_avx512/gcc-8.4.0/gcc-8.4.0-x32l5zx2wrnc2y3ty5ccte2cf6bebqre/bin/g++
+      f77: /apps/spack/x86_64/0.16.1/opt/spack/linux-centos7-skylake_avx512/gcc-8.4.0/gcc-8.4.0-x32l5zx2wrnc2y3ty5ccte2cf6bebqre/bin/gfortran
+      fc: /apps/spack/x86_64/0.16.1/opt/spack/linux-centos7-skylake_avx512/gcc-8.4.0/gcc-8.4.0-x32l5zx2wrnc2y3ty5ccte2cf6bebqre/bin/gfortran
+    operating_system: centos7
+    target: x86_64
+    modules: []
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    spec: gcc@8.4.0
+
