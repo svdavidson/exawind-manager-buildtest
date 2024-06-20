@@ -1,16 +1,22 @@
-
 packages:
   all:
-    compiler: [gcc@9.3.0 target=zen]
+    require:
+      - "%gcc@9.3.0"
+    compiler: [gcc@9.3.0 target=skylake_avx512]
     providers:
       mpi: [openmpi]
   slurm:
     externals:
-    - spec: slurm@23.02.6
-      prefix: /usr
+    - spec: slurm@20.11.9
+      prefix: /apps/slurm/x86/20.11.9-rdhpc8
     buildable: False
   openmpi:
+    require: "@4.1.4"
+    buildable: false
     externals:
     - spec: openmpi@4.1.4
-      prefix: /workint/users/l0542302/apps/exawind/2024-01/genoa_x86_64/openmpi-4.1.4
+      prefix: /apps/exawind/2023-11/x86_64/openmpi-4.1.4
+  mpi:
+    require: "openmpi@4.1.4"
+
 
