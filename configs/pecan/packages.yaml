@@ -1,10 +1,26 @@
 packages:
   all:
-    require:
-      - "%gcc@9.3.0"
-    compiler: [gcc@9.3.0 target=skylake_avx512]
+    compiler: [gcc@9.3.0]
+    target: [skylake_avx512]
     providers:
-      mpi: [openmpi]
+      mpi: [mpich]
+      blas: [openblas]
+      lapack: [openblas]
+  mpi:
+    require: 'mpich'
+  mpich:
+    variants: netmod=ucx device=ch4 +slurm +hydra
+  libfabric:
+    variants: fabrics=verbs
+  ucx:
+    variants: +optimizations+gdrcopy
+    version: [1.8.1]
+  openmpi:
+    require: "@4.1.4"
+    buildable: false
+    externals:
+    - spec: openmpi@4.1.4
+      prefix: /apps/exawind/2023-11/x86_64/openmpi-4.1.4
   curl:
     require: "@7.29.0"
     externals:
@@ -16,13 +32,3 @@ packages:
     - spec: slurm@20.11.9
       prefix: /apps/slurm/x86/20.11.9-rdhpc8
     buildable: False
-  openmpi:
-    require: "@4.1.4"
-    buildable: false
-    externals:
-    - spec: openmpi@4.1.4
-      prefix: /apps/exawind/2023-11/x86_64/openmpi-4.1.4
-  mpi:
-    require: "openmpi@4.1.4"
-
-
