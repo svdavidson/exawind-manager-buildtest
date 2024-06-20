@@ -9,12 +9,9 @@ packages:
   mpi:
     require: 'mpich'
   mpich:
-    variants: netmod=ucx device=ch4 +slurm +hydra
+    variants: netmod=ucx device=ch4
   libfabric:
     variants: fabrics=verbs
-  ucx:
-    variants: +optimizations+gdrcopy
-    version: [1.8.1]
   openmpi:
     require: "@4.1.4"
     buildable: false
