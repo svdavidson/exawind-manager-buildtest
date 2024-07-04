@@ -6,6 +6,8 @@ packages:
       mpi: [mpich]
       blas: [openblas]
       lapack: [openblas]
+  nalu-wind:
+    variants: +trilinos-solvers
   mpi:
     require: 'mpich'
   mpich:
