@@ -1,0 +1,33 @@
+packages:
+  all:
+    compiler: [gcc@9.3.0]
+    target: [zen]
+    providers:
+      mpi: [mpich]
+      blas: [openblas]
+      lapack: [openblas]
+  nalu-wind:
+    variants: +openfast+wind-utils+boost+trilinos-solvers
+  mpi:
+    require: 'mpich'
+  mpich:
+    variants: netmod=ucx device=ch4
+  libfabric:
+    variants: fabrics=verbs
+  openmpi:
+    require: "@4.1.4"
+    buildable: false
+    externals:
+    - spec: openmpi@4.1.4
+      prefix: /apps/exawind/2023-11/x86_64/openmpi-4.1.4
+  curl:
+    require: "@7.76.1"
+    externals:
+    - spec: curl@7.76.1
+      prefix: /usr/bin/curl
+    buildable: False
+  slurm:
+    externals:
+    - spec: slurm@23.11.6
+      prefix: /apps/slurm/x86/23.11.6-pine
+    buildable: False

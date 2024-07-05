@@ -86,9 +86,9 @@ machine_list = {
     # General
     "darwin": MachineData(lambda: sys.platform == "darwin", "darwin.nodomain.gov"),
     # Pecan
-    "pecan": MachineData(
-        lambda: os.environ["LMOD_SYSTEM_NAME"] == "PECAN", "pecan-1.nxcluster"
-    ),
+    "pecan": MachineData( lambda: os.environ["LMOD_SYSTEM_NAME"] == "PECAN", "pecan-1.nxcluster"),
+    # Pine
+    "pine": MachineData( lambda: os.environ["LMOD_SYSTEM_NAME"] == "PINE", "pine-1.pine.cluster"),
 }
 
 
