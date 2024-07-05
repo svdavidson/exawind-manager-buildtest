@@ -7,7 +7,7 @@ packages:
       blas: [openblas]
       lapack: [openblas]
   nalu-wind:
-    variants: +openfast+wind-utils+boost+trilinos-solvers
+    variants: +openfast~wind-utils+boost+trilinos-solvers
   mpi:
     require: 'mpich'
   mpich:
