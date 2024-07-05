@@ -1,7 +1,7 @@
 packages:
   all:
-    compiler: [gcc@9.3.0]
-    target: [zen]
+    compiler: [gcc@12.3.0]
+    target: [zen2]
     providers:
       mpi: [mpich]
       blas: [openblas]
@@ -14,12 +14,6 @@ packages:
     variants: netmod=ucx device=ch4
   libfabric:
     variants: fabrics=verbs
-  openmpi:
-    require: "@4.1.4"
-    buildable: false
-    externals:
-    - spec: openmpi@4.1.4
-      prefix: /apps/exawind/2023-11/x86_64/openmpi-4.1.4
   curl:
     require: "@7.76.1"
     externals:
@@ -31,3 +25,9 @@ packages:
     - spec: slurm@23.11.6
       prefix: /apps/slurm/x86/23.11.6-pine
     buildable: False
+#  openmpi:
+#    require: "@4.1.4"
+#    buildable: false
+#    externals:
+#    - spec: openmpi@4.1.4
+#      prefix: /apps/exawind/2023-11/x86_64/openmpi-4.1.4
