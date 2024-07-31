@@ -49,6 +49,14 @@ def is_e4s():
         return False
 
 
+def is_pangea4(hostname):
+    known_hosts = ("p4intlog01", "p4intlog02", "p4log01", "p4log02")
+    for k in known_hosts:
+        if k in hostname:
+            return True
+    return False
+
+
 """
 Set up a dictionary with a key for machine name and checker function
 for value - the checker function should return true for the machine
@@ -89,6 +97,8 @@ machine_list = {
     "pecan": MachineData( lambda: os.environ["LMOD_SYSTEM_NAME"] == "PECAN", "pecan-1.nxcluster"),
     # Pine
     "pine": MachineData( lambda: os.environ["LMOD_SYSTEM_NAME"] == "PINE", "pine-1.pine.cluster"),
+    # Pangea4
+    "pangea4": MachineData(lambda: is_pangea4(socket.gethostname()), "p4intlog01.head.p4int.pangea.local"),
 }
 
 
