@@ -4,8 +4,8 @@ spack:
     reuse: false 
   view: false
   specs:
-    - 'exawind~amr_wind_gpu~nalu_wind_gpu %oneapi'
-    - 'amr-wind@hgopalan-terrain %oneapi'
+    - 'exawind~amr_wind_gpu~nalu_wind_gpu %oneapi ^amr-wind@hgopalan-terrain %oneapi'
+      #- 'amr-wind@hgopalan-terrain %oneapi'
       #- 'exawind~amr_wind_gpu~nalu_wind_gpu %gcc'
       #- 'exawind+amr_wind_gpu~nalu_wind_gpu+cuda %gcc'
       #- 'exawind~amr_wind_gpu+nalu_wind_gpu+cuda %gcc'
