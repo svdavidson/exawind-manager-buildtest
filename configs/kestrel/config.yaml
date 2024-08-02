@@ -1,2 +1,3 @@
 config:
   build_jobs: 36
+  db_lock_timeout: 300
