@@ -11,6 +11,11 @@ packages:
         prefix: /opt/cray/pe/mpich/8.1.28/ofi/gnu/10.3
         modules:
           - libfabric/1.15.2.0
+      - spec: "netcdf-c@4.9.2"
+        prefix: /nopt/nrel/apps/cpu_stack/libraries-craympich/06-24/linux-rhel8-sapphirerapids/oneapi-2023.2.0/netcdf-c-4.9.2-3q6roxfm5g7tp77ivfbvvsiqgwmvrzxm
+        modules:
+          - netcdf-c/4.9.2-cray-mpich-intel
+
   mpi:
     require: "cray-mpich@8.1.28"
   blas:
