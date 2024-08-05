@@ -5,6 +5,7 @@ spack:
   view: false
   specs:
     - 'netcdf-c%oneapi'
+    - 'amr-wind@hgopalan-terrain+netcdf %oneapi'
 
     #- 'amr-wind@hgopalan-terrain+netcdf%oneapi %oneapi'
     #- 'nalu-wind%oneapi'
