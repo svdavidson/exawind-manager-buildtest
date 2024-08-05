@@ -12,7 +12,7 @@ packages:
         modules:
           - libfabric/1.15.2.0
   netcdf-c:
-    require: "@=4.9.2"
+    require: "@=4.9.2%oneapi@2023.2.0"
     buildable: false
     externals:
       - spec: "netcdf-c@=4.9.2%oneapi@2023.2.0"
@@ -25,7 +25,7 @@ packages:
   lapack:
     require: "openblas"
   amr-wind:
-    require: "netcdf-c@4.9.2"
+    require: "netcdf-c@4.9.2%oneapi@2023.2.0"
   all:
     variants: cuda_arch=90
 
