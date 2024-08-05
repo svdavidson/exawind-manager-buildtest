@@ -4,7 +4,7 @@ spack:
     reuse: false 
   view: false
   specs:
-    - 'netcdf%oneapi'
+    - 'netcdf-c%oneapi'
 
     #- 'amr-wind@hgopalan-terrain+netcdf%oneapi %oneapi'
     #- 'nalu-wind%oneapi'
