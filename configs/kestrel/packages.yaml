@@ -25,8 +25,8 @@ packages:
     require: "openblas"
   lapack:
     require: "openblas"
-  amr-wind:
-    require: "netcdf-c@4.9.2%oneapi@2023.2.0"
   all:
     variants: cuda_arch=90
 
+#  amr-wind:
+#    require: "netcdf-c@4.9.2%oneapi@2023.2.0"
