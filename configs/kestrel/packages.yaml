@@ -11,14 +11,18 @@ packages:
         prefix: /opt/cray/pe/mpich/8.1.28/ofi/gnu/10.3
         modules:
           - libfabric/1.15.2.0
+  hdf5:
+    require: "@=1.14.3%oneapi@2023.2.0"
+    buildable: false
+    externals:
+      - spec: "hdf5@=1.14.3%oneapi@2023.2.0"
+        prefix: /nopt/nrel/apps/cpu_stack/libraries-craympich/06-24/linux-rhel8-sapphirerapids/oneapi-2023.2.0/hdf5-1.14.3-fkskka3e4b2qwbhkthxs3vkknhbz4eej
   netcdf-c:
     require: "@=4.9.2%oneapi@2023.2.0"
     buildable: false
     externals:
       - spec: "netcdf-c@=4.9.2%oneapi@2023.2.0"
         prefix: /nopt/nrel/apps/cpu_stack/libraries-craympich/06-24/linux-rhel8-sapphirerapids/oneapi-2023.2.0/netcdf-c-4.9.2-3q6roxfm5g7tp77ivfbvvsiqgwmvrzxm
-        modules:
-          - hdf5/1.14.3-cray-mpich-intel
   mpi:
     require: "cray-mpich@8.1.28"
   blas:
@@ -30,3 +34,7 @@ packages:
 
 #  amr-wind:
 #    require: "netcdf-c@4.9.2%oneapi@2023.2.0"
+#
+# removed from netcdf-c after adding hdf5
+#       modules:
+#         - hdf5/1.14.3-cray-mpich-intel
