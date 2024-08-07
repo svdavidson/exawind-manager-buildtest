@@ -13,6 +13,8 @@ packages:
           - libfabric/1.15.2.0
   amr-wind:
     require: "@=terrain"
+  exawind:
+    require: "amr-wind@terrain"
   mpi:
     require: "cray-mpich@8.1.28"
   blas:
