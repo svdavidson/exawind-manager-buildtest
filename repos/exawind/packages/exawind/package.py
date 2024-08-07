@@ -12,11 +12,13 @@ from spack.pkg.exawind.ctest_package import *
 
 class Exawind(bExawind, CtestPackage):
     version("multiphase", branch="multiphase_dev", submodules=True)
+    version("terrain", submodules=True)
 
     variant("asan", default=False, description="Turn on address sanitizer")
 
     depends_on("nalu-wind@multiphase", when="@multiphase")
     depends_on("amr-wind@multiphase", when="@multiphase")
+    depends_on("amr-wind@terrain", when="@terrain")
 
     def cmake_args(self):
         spec = self.spec
