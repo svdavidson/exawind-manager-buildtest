@@ -12,7 +12,7 @@ packages:
         modules:
           - libfabric/1.15.2.0
   amr-wind:
-    require: "amr-wind@hgopalan-terrain"
+    require: "@=hgopalan-terrain"
   mpi:
     require: "cray-mpich@8.1.28"
   blas:
