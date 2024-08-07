@@ -11,8 +11,6 @@ packages:
         prefix: /opt/cray/pe/mpich/8.1.28/ofi/gnu/10.3
         modules:
           - libfabric/1.15.2.0
-  #amr-wind:
-  #  require: "@=terrain"
   exawind:
     require: "amr-wind@terrain"
   mpi:
@@ -23,3 +21,6 @@ packages:
     require: "openblas"
   all:
     variants: cuda_arch=90
+
+  #amr-wind:
+  #  require: "@=terrain"
