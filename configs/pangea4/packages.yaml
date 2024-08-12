@@ -1,0 +1,44 @@
+packages:
+  cray-mpich:
+    require: "@=8.1.27"
+    buildable: false
+    externals:
+      - spec: "cray-mpich@=8.1.27"
+        prefix: /opt/cray/pe/mpich/8.1.27/ofi/crayclang/16.0
+  mpi:
+    require: "cray-mpich@8.1.27"
+  blas:
+    require: "openblas"
+  lapack:
+    require: "openblas"
+  all:
+    variants: cuda_arch=90
+
+#  all:
+#    compiler: [gcc@12.3.0]
+#    target: [zen2]
+#    providers:
+#      mpi: [mpich]
+#      blas: [openblas]
+#      lapack: [openblas]
+#
+#  curl:
+#    require: "@7.76.1"
+#    externals:
+#    - spec: curl@7.76.1
+#      prefix: /usr/bin/curl
+#    buildable: False
+#  slurm:
+#    externals:
+#    - spec: slurm@23.11.6
+#      prefix: /apps/slurm/x86/23.11.6-pine
+#    buildable: False
+#  nalu-wind:
+#    variants: +openfast~wind-utils+boost+trilinos-solvers
+#  openmpi:
+#    require: "@4.1.4"
+#    buildable: false
+#    externals:
+#    - spec: openmpi@4.1.4
+#      prefix: /apps/exawind/2023-11/x86_64/openmpi-4.1.4
+#
