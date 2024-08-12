@@ -12,9 +12,6 @@ packages:
   lapack:
     require: "openblas"
   all:
-    variants: cuda_arch=90
-
-  all:
     compiler: [gcc@13.2.0]
     variants: cuda_arch=90
     target: [zen4]
