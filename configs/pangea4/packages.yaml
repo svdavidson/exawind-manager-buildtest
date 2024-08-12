@@ -14,6 +14,15 @@ packages:
   all:
     variants: cuda_arch=90
 
+  all:
+    compiler: [gcc@13.2.0]
+    variants: cuda_arch=90
+    target: [zen4]
+    providers:
+      mpi: [mpich]
+      blas: [openblas]
+      lapack: [openblas]
+
 #  all:
 #    compiler: [gcc@12.3.0]
 #    target: [zen2]
