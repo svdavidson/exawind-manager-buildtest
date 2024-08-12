@@ -1,20 +1,6 @@
 compilers:
 - compiler:
-    paths:
-      cc: /usr/bin/gcc
-      cxx: /usr/bin/g++
-      f77: /usr/bin/gfortran
-      fc: /usr/bin/gfortran
-    operating_system: redhat8
-    target: x86_64
-    modules: []
-    environment: {}
-    extra_rpaths: []
-    flags: {}
-    spec: gcc@8.5.0
-
-- compiler:
-    spec: gcc@12.3.0
+    spec: gcc@13.2.0
     paths:
       cc: /workint/x86/sw/RHEL8/spack/0.20.1/opt/spack/linux-rhel8-x86_64_v4/gcc-8.5.0/gcc-13.2.0-5x55s4vm7bqmzsjymfudopf4vdti7xd5/bin/gcc
       cxx: /workint/x86/sw/RHEL8/spack/0.20.1/opt/spack/linux-rhel8-x86_64_v4/gcc-8.5.0/gcc-13.2.0-5x55s4vm7bqmzsjymfudopf4vdti7xd5/bin/g++
@@ -28,7 +14,19 @@ compilers:
     extra_rpaths:
      - /workint/x86/sw/RHEL8/spack/0.20.1/opt/spack/linux-rhel8-x86_64_v4/gcc-8.5.0/gcc-13.2.0-5x55s4vm7bqmzsjymfudopf4vdti7xd5/lib64
 
-
+#- compiler:
+#    paths:
+#      cc: /usr/bin/gcc
+#      cxx: /usr/bin/g++
+#      f77: /usr/bin/gfortran
+#      fc: /usr/bin/gfortran
+#    operating_system: redhat8
+#    target: x86_64
+#    modules: []
+#    environment: {}
+#    extra_rpaths: []
+#    flags: {}
+#    spec: gcc@8.5.0
 #- compiler:
 #    paths:
 #      cc: /apps/gcc/8.2.0/x86_64/bin/gcc
