@@ -2,17 +2,17 @@ compilers:
 - compiler:
     spec: gcc@13.2.0
     paths:
-      cc: /workint/x86/sw/RHEL8/spack/0.20.1/opt/spack/linux-rhel8-x86_64_v4/gcc-8.5.0/gcc-13.2.0-5x55s4vm7bqmzsjymfudopf4vdti7xd5/bin/gcc
-      cxx: /workint/x86/sw/RHEL8/spack/0.20.1/opt/spack/linux-rhel8-x86_64_v4/gcc-8.5.0/gcc-13.2.0-5x55s4vm7bqmzsjymfudopf4vdti7xd5/bin/g++
-      f77: /workint/x86/sw/RHEL8/spack/0.20.1/opt/spack/linux-rhel8-x86_64_v4/gcc-8.5.0/gcc-13.2.0-5x55s4vm7bqmzsjymfudopf4vdti7xd5/bin/gfortran
-      fc:  /workint/x86/sw/RHEL8/spack/0.20.1/opt/spack/linux-rhel8-x86_64_v4/gcc-8.5.0/gcc-13.2.0-5x55s4vm7bqmzsjymfudopf4vdti7xd5/bin/gfortran
+      cc:  /lustre/p4scratch/data_local/sw/RHEL8/spack-0.21.0/opt/gcc-8.5.0/gcc-13.2.0-5x55s4v/bin/gcc
+      cxx: /lustre/p4scratch/data_local/sw/RHEL8/spack-0.21.0/opt/gcc-8.5.0/gcc-13.2.0-5x55s4v/bin/g++
+      f77: /lustre/p4scratch/data_local/sw/RHEL8/spack-0.21.0/opt/gcc-8.5.0/gcc-13.2.0-5x55s4v/bin/gfortran
+      fc:  /lustre/p4scratch/data_local/sw/RHEL8/spack-0.21.0/opt/gcc-8.5.0/gcc-13.2.0-5x55s4v/bin/gfortran
     flags: {}
     operating_system: rhel8
     target: x86_64
     modules: []
     environment: {}
     extra_rpaths:
-     - /workint/x86/sw/RHEL8/spack/0.20.1/opt/spack/linux-rhel8-x86_64_v4/gcc-8.5.0/gcc-13.2.0-5x55s4vm7bqmzsjymfudopf4vdti7xd5/lib64
+     - /lustre/p4scratch/data_local/sw/RHEL8/spack-0.21.0/opt/gcc-8.5.0/gcc-13.2.0-5x55s4v/lib64
 
 #- compiler:
 #    paths:
