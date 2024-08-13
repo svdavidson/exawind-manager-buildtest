@@ -1,5 +1,6 @@
 compilers:
 - compiler:
+    spec: gcc@11.4.1
     paths:
       cc: /usr/bin/gcc
       cxx: /usr/bin/g++
@@ -11,7 +12,7 @@ compilers:
     environment: {}
     extra_rpaths: []
     flags: {}
-    spec: gcc@11.4.1
+
 #- compiler:
 #    paths:
 #      cc: /apps/gcc/8.2.0/x86_64/bin/gcc

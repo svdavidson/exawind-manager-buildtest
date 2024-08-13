@@ -1,6 +1,6 @@
 packages:
   all:
-    compiler: [gcc@12.3.0]
+    compiler: [gcc@11.4.1]
     target: [zen2]
     providers:
       mpi: [mpich]
@@ -23,6 +23,13 @@ packages:
     - spec: slurm@23.11.6
       prefix: /apps/slurm/x86/23.11.6-pine
     buildable: False
+  blas:
+    require: "openblas"
+  lapack:
+    require: "openblas"
+
+
+
 #  nalu-wind:
 #    variants: +openfast~wind-utils+boost+trilinos-solvers
 #  openmpi:
