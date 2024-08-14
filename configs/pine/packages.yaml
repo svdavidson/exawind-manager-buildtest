@@ -9,15 +9,9 @@ packages:
   mpi:
     require: 'mpich'
   mpich:
-    variants: netmod=ucx device=ch4
+    variants: netmod=ofi device=ch4
   libfabric:
-    variants: fabrics=verbs
-  curl:
-    require: "@7.76.1"
-    externals:
-    - spec: curl@7.76.1
-      prefix: /usr/bin/curl
-    buildable: False
+    variants: fabrics=sockets,tcp,udp,verbs
   slurm:
     externals:
     - spec: slurm@23.11.6
@@ -29,7 +23,12 @@ packages:
     require: "openblas"
 
 
-
+#  curl:
+#    require: "@7.76.1"
+#    externals:
+#    - spec: curl@7.76.1
+#      prefix: /usr/bin/curl
+#    buildable: False
 #  nalu-wind:
 #    variants: +openfast~wind-utils+boost+trilinos-solvers
 #  openmpi:
