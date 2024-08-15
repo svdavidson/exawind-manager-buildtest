@@ -11,7 +11,7 @@ packages:
   mpich:
     variants: netmod=ofi device=ch4
   libfabric:
-    variants: fabrics=sockets,tcp,udp,verbs
+    variants: fabrics=psm3,verbs,mlx,sockets,tcp,udp,shm
   curl:
     require: "@7.76.1"
     externals:
