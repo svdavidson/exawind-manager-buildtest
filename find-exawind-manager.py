@@ -96,7 +96,8 @@ machine_list = {
     # Pecan
     "pecan": MachineData( lambda: os.environ["LMOD_SYSTEM_NAME"] == "PECAN", "pecan-1.nxcluster"),
     # Pine
-    "pine": MachineData( lambda: os.environ["LMOD_SYSTEM_NAME"] == "PINE", "pine-1.pine.cluster"),
+    #"pine": MachineData( lambda: os.environ["LMOD_SYSTEM_NAME"] == "PINE", "pine-1.pine.cluster"),
+    "pine": MachineData( lambda: os.environ["LMOD_SYSTEM_NAME"] == "PINE", "pine-1"),
     # Pangea4
     "pangea4": MachineData(lambda: is_pangea4(socket.gethostname()), "p4intlog01.head.p4int.pangea.local"),
 }
