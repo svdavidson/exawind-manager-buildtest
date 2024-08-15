@@ -9,9 +9,9 @@ packages:
   mpi:
     require: 'mpich'
   mpich:
-    variants: netmod=ofi device=ch4
+    variants: netmod=ofi device=ch4 +verbs +slurm +hydra
   libfabric:
-    variants: fabrics=verbs,mlx,sockets,tcp,udp,shm
+    variants: fabrics=verbs,mlx,ucx,sockets,tcp,udp,shm
   curl:
     require: "@7.76.1"
     externals:
@@ -28,6 +28,8 @@ packages:
   lapack:
     require: "openblas"
 
+#  mpich:
+#    variants: netmod=ucx device=ch4 +slurm +hydra
 #  nalu-wind:
 #    variants: +openfast~wind-utils+boost+trilinos-solvers
 #  openmpi:
