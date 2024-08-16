@@ -3,13 +3,15 @@ packages:
     compiler: [gcc@11.4.1]
     target: [zen2]
     providers:
-      mpi: [mpich]
+      mpi: [openmpi]
       blas: [openblas]
       lapack: [openblas]
   mpi:
-    require: 'mpich'
+    require: 'openmpi'
   mpich:
     variants: netmod=ofi device=ch4 +verbs +slurm +hydra
+  openmpi:
+    variants: +pmi +cuda fabrics=verbs schedulers=slurm legacylaunchers=true ~vt
   libfabric:
     variants: fabrics=verbs,mlx,ucx,sockets,tcp,udp,shm
   curl:
