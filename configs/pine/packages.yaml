@@ -7,11 +7,12 @@ packages:
       blas: [openblas]
       lapack: [openblas]
   mpi:
-    require: 'openmpi'
+    require: 'openmpi@4.1.4'
   mpich:
     variants: netmod=ofi device=ch4 +verbs +slurm +hydra
   openmpi:
-    variants: +pmi +cuda fabrics=verbs schedulers=slurm legacylaunchers=true ~vt
+    require: "@4.1.4"
+    variants: fabrics=verbs schedulers=slurm legacylaunchers=true ~vt
   libfabric:
     variants: fabrics=verbs,mlx,ucx,sockets,tcp,udp,shm
   curl:
@@ -30,6 +31,8 @@ packages:
   lapack:
     require: "openblas"
 
+#  openmpi:
+#    variants: +pmi +cuda fabrics=verbs schedulers=slurm legacylaunchers=true ~vt
 #  mpich:
 #    variants: netmod=ucx device=ch4 +slurm +hydra
 #  nalu-wind:
