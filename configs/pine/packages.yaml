@@ -12,7 +12,7 @@ packages:
     variants: netmod=ofi device=ch4 +verbs +slurm +hydra
   openmpi:
     require: "@4.1.4"
-    variants: fabrics=verbs schedulers=slurm legacylaunchers=true ~vt cflags=-I/usr/include/infiniband
+    variants: cflags=-I/usr/include/infiniband fabrics=verbs schedulers=slurm legacylaunchers=true ~vt
   libfabric:
     variants: fabrics=verbs,mlx,ucx,sockets,tcp,udp,shm
   curl:
