@@ -7,17 +7,9 @@ packages:
       blas: [openblas]
       lapack: [openblas]
   mpi:
-    require: 'openmpi@4.1.6'
+    require: 'openmpi@4.1.4'
   mpich:
     variants: netmod=ofi device=ch4 +verbs +slurm +hydra
-  openmpi:
-    #require: "@4.1.6"
-    require:
-      - "@4.1.6"
-      - "cflags='-I/usr/include/infiniband'"
-    variants: fabrics=verbs schedulers=slurm legacylaunchers=true ~vt
-  libfabric:
-    variants: fabrics=verbs,mlx,ucx,sockets,tcp,udp,shm
   curl:
     require: "@7.76.1"
     externals:
@@ -33,6 +25,12 @@ packages:
     require: "openblas"
   lapack:
     require: "openblas"
+  openmpi:
+    require: "@4.1.4"
+    buildable: false
+    externals:
+    - spec: openmpi@4.1.4
+      prefix: /apps/exawind/2023-11/x86_64/openmpi-4.1.4
 
 #  openmpi:
 #    variants: +pmi +cuda fabrics=verbs schedulers=slurm legacylaunchers=true ~vt
@@ -46,3 +44,18 @@ packages:
 #    externals:
 #    - spec: openmpi@4.1.4
 #      prefix: /apps/exawind/2023-11/x86_64/openmpi-4.1.4
+#  openmpi:
+#    require:
+#      - "@4.1.6"
+#      - "cflags='-I/usr/include/infiniband'"
+#
+#
+#  OpenMPI with ucx - haven't tried
+#
+#  openmpi:
+#    require: "@4.1.6"
+#    variants: fabrics=ucx schedulers=slurm legacylaunchers=true ~vt
+#  libfabric:
+#    variants: fabrics=verbs,mlx,ucx,sockets,tcp,udp,shm
+#  ucx:
+#    variants: +verbs +mlx5_dv
