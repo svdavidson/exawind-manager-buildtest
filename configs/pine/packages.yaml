@@ -9,7 +9,9 @@ packages:
   mpi:
     require: 'openmpi@4.1.4'
   mpich:
-    variants: netmod=ofi device=ch4 +verbs +slurm +hydra
+    variants: netmod=ucx device=ch4 +slurm +hydra
+  ucx:
+    variants: +verbs
   curl:
     require: "@7.76.1"
     externals:
@@ -55,7 +57,7 @@ packages:
 #  openmpi:
 #    require: "@4.1.6"
 #    variants: fabrics=ucx schedulers=slurm legacylaunchers=true ~vt
+#  ucx:
+#    variants: +verbs
 #  libfabric:
 #    variants: fabrics=verbs,mlx,ucx,sockets,tcp,udp,shm
-#  ucx:
-#    variants: +verbs +mlx5_dv
