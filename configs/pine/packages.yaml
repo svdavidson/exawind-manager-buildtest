@@ -32,8 +32,10 @@ packages:
     buildable: false
     externals:
     - spec: openmpi@4.1.4
-      prefix: /apps/exawind/2024-09/genoa_x86_64/exawind-terrain/openmpi-4.1.4/
+      prefix: /shared/data1/Projects/WIND/apps/exawind/2024-09/genoa/exawind-terrain/openmpi-4.1.4/
 
+#      prefix: /apps/exawind/2024-09/genoa_x86_64/exawind-terrain/openmpi-4.1.4/
+#
 #  openmpi:
 #    variants: +pmi +cuda fabrics=verbs schedulers=slurm legacylaunchers=true ~vt
 #  mpich:
