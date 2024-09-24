@@ -3,4 +3,5 @@ config:
   url_fetch_method: curl
   db_lock_timeout: 300
   build_jobs: 16
+  debug: true
 
