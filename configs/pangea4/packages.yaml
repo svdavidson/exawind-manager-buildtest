@@ -8,7 +8,7 @@ packages:
         modules:
           - libfabric/1.13.1
   openmpi:
-    require: "@4.1.6"
+    require: "@=4.1.6"
     buildable: false
     externals:
     - spec: openmpi@4.1.6
@@ -21,7 +21,7 @@ packages:
   lapack:
     require: "openblas"
   slurm:
-    require: @23.02.7
+    require: "@=23.02.7"
     buildable: False
     externals:
     - spec: slurm@23.02.7
