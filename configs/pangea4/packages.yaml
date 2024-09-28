@@ -5,12 +5,27 @@ packages:
     externals:
       - spec: "cray-mpich@=8.1.27"
         prefix: /opt/cray/pe/mpich/8.1.27/ofi/crayclang/16.0
+        modules:
+          - libfabric/1.13.1
+  openmpi:
+    require: "@4.1.6"
+    buildable: false
+    externals:
+    - spec: openmpi@4.1.6
+      prefix: /lustre/p4scratch/data_local/sw/RHEL8/spack-0.21.0/opt/cce-16.0.1/openmpi-4.1.6-zyahxpk
   mpi:
-    require: "cray-mpich@8.1.27"
+    require: "openmpi@4.1.6"
+    #require: "cray-mpich@8.1.27"
   blas:
     require: "openblas"
   lapack:
     require: "openblas"
+  slurm:
+    require: @23.02.7
+    buildable: False
+    externals:
+    - spec: slurm@23.02.7
+      prefix: /usr
   all:
     compiler: [gcc@13.2.0]
     variants: cuda_arch=90
