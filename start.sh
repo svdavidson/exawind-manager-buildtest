@@ -73,7 +73,7 @@ function spack-start() {
       install_spack_manager
     fi
 
-    if [[ -z $(spack config --scope site blame concretizer | grep -i 'unify:false') ]]; then
+    if [[ -z $(spack config --scope site blame concretizer | grep -i 'unify: false') ]]; then
       spack -E config --scope site add "concretizer:unify:false"
     fi
 
