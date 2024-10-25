@@ -32,8 +32,9 @@ packages:
     buildable: false
     externals:
     - spec: openmpi@4.1.4
-      prefix: $spack/../../openmpi-4.1.4/
+      prefix: /shared/data1/Projects/WIND/apps/exawind/2024-10-dev/pine/main-of354/openmpi-4.1.4/
 
+#      prefix: $spack/../../openmpi-4.1.4/
 #      prefix: /shared/data1/Projects/WIND/apps/exawind/2024-09/genoa/exawind-terrain/openmpi-4.1.4/
 #
 #      prefix: /apps/exawind/2024-09/genoa_x86_64/exawind-terrain/openmpi-4.1.4/
