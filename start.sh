@@ -34,7 +34,8 @@ function spack-start() {
   export EXAWIND_MANAGER="$( cd -- "$(dirname "${BASH_SOURCE[0]:-${(%):-%x}}")" >/dev/null 2>&1 ; pwd -P )"
 
   function install_spack_manager(){
-    git clone https://github.com/sandialabs/spack-manager $SPACK_ROOT/../spack-manager
+    export SPACK_ROOT=${EXAWIND_MANAGER}/spack
+    git submodule update ${SPACK_ROOT}/../spack-manager
     spack -E config --scope site add "config:extensions:[${EXAWIND_MANAGER}/spack-manager]"
     spack -E manager add ${EXAWIND_MANAGER}
   }
@@ -81,6 +82,9 @@ function spack-start() {
       spack -E repo add ${EXAWIND_MANAGER}/repos/exawind
     fi
 
+    export PATH=${PATH}:${EXAWIND_MANAGER}/scripts
+    export PYTHONPATH=${PYTHONPATH}:${EXAWIND_MANAGER}
+
     if [[ -z $(spack config --scope site blame bootstrap | grep spack-bootstrap-store) ]]; then
       if [[ "$(spack manager find-machine | awk '{print $2}')" == "cee" ]]; then
         spack -E bootstrap add --scope site --trust wind-binaries /projects/wind/spack-bootstrap-store/metadata/binaries
@@ -92,9 +96,6 @@ function spack-start() {
     fi
 
     source ${EXAWIND_MANAGER}/spack-manager/scripts/quick_commands.sh
-    export PATH=${PATH}:${EXAWIND_MANAGER}/scripts
-    # needed for package imports
-    export PYTHONPATH=${PYTHONPATH}:${EXAWIND_MANAGER}
     # define a function since environment variables are sometimes preserved in a subshell but functions aren't
     # see https://github.com/psakievich/spack-manager/issues/210
     function _spack_start_called(){

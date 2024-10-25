@@ -1,3 +1,8 @@
 [submodule "spack"]
 	path = spack
 	url = https://github.com/spack/spack
+	shallow = true
+[submodule "spack-manager"]
+	path = spack-manager
+	url = https://github.com/sandialabs/spack-manager.git
+	shallow = true

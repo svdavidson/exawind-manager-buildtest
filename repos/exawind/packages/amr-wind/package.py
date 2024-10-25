@@ -10,6 +10,8 @@ from spack.pkg.builtin.amr_wind import AmrWind as bAmrWind
 from spack.pkg.exawind.ctest_package import *
 
 class AmrWind(bAmrWind, CtestPackage):
+    version("main", branch="main", submodules=True, preferred=True)
+    version("3.1.6", tag="v3.1.6", submodules=True)
     version("multiphase", branch="multiphase_dev", submodules=True)
     version("terrain", git="https://github.com/hgopalan/amr-wind.git", branch="hgopalan-terrain", submodules=True)
     
@@ -24,6 +26,10 @@ class AmrWind(bAmrWind, CtestPackage):
         if spec.satisfies("+asan"):
             env.append_flags("CXXFLAGS", "-fsanitize=address -fno-omit-frame-pointer")
             env.set("LSAN_OPTIONS", "suppressions={0}".format(join_path(self.package_dir, "sup.asan")))
+
+        if spec.satisfies("+cuda"):
+            env.set("CUDAHOSTCXX", spack_cxx)
+
 
     def cmake_args(self):
         spec = self.spec
@@ -40,5 +46,9 @@ class AmrWind(bAmrWind, CtestPackage):
             cmake_options.append(self.define("AMR_WIND_SAVE_GOLDS", True))
             cmake_options.append(self.define("AMR_WIND_SAVED_GOLDS_DIRECTORY", super().saved_golds_dir))
             cmake_options.append(self.define("AMR_WIND_REFERENCE_GOLDS_DIRECTORY", super().reference_golds_dir))
+
+        if spec.satisfies("+mpi"):
+            cmake_options.append(self.define("MPI_CXX_COMPILER", spec["mpi"].mpicxx))
+            cmake_options.append(self.define("MPI_C_COMPILER", spec["mpi"].mpicc))
 
         return cmake_options

@@ -24,7 +24,7 @@ from spack.package import CMakePackage
 find_machine = importlib.import_module("find-exawind-manager")
 
 class CTestBuilder(spack.build_systems.cmake.CMakeBuilder):
-    phases = ("cmake", "build", "install", "finalize")
+    phases = ("cmake", "build", "install", "analysis")
 
     @property
     def std_cmake_args(self):
@@ -71,7 +71,7 @@ class CTestBuilder(spack.build_systems.cmake.CMakeBuilder):
         args = [
             "-T",
             "Submit",
-            "-v"
+            "-V"
         ]
         return args
 
@@ -100,7 +100,7 @@ class CTestBuilder(spack.build_systems.cmake.CMakeBuilder):
         else:
             super().build(pkg, spec, prefix)
 
-    def finalize(self, pkg, spec, prefix):
+    def analysis(self, pkg, spec, prefix):
         """
         This method will be used to run regression test
         TODO: workout how to get the track,build,site mapped correctly
@@ -113,10 +113,14 @@ class CTestBuilder(spack.build_systems.cmake.CMakeBuilder):
             tty.debug("{} running CTest".format(self.pkg.spec.name))
             tty.debug("Running:: ctest"+" ".join(args))
             ctest = Executable(self.spec["cmake"].prefix.bin.ctest)
-            ctest.add_default_env("CTEST_PARALLEL_LEVEL", str(make_jobs))
             ctest.add_default_env("CMAKE_BUILD_PARALLEL_LEVEL", str(make_jobs))
             build_env = os.environ.copy()
-            ctest(*args, "-j", str(make_jobs),  env=build_env, fail_on_error=False)
+            # Avoid running GPU tests in parallel due to memory constraints
+            if self.spec.satisfies("+cuda"):
+                ctest(*args, env=build_env, fail_on_error=False)
+            else:
+                ctest.add_default_env("CTEST_PARALLEL_LEVEL", str(make_jobs))
+                ctest(*args, "-j", str(make_jobs),  env=build_env, fail_on_error=False)
 
             if self.pkg.spec.variants["cdash_submit"].value:
                 self.submit_cdash(pkg, spec, prefix)
@@ -169,11 +173,11 @@ class CtestPackage(CMakePackage):
     @property
     def reference_golds_dir(self):
         if self.spec.variants["reference_golds"].value != "default":
-            if not os.path.isdir(self.spec.variants["reference_golds"].value):
-                tty.die("Supplied referenced golds path is not valid: {}".format(
-                        self.spec.variants["reference_golds"].value)
-                        )
-            return self.spec.variants["reference_golds"].value
+            gold_dir =  self.spec.variants["reference_golds"].value
         else:
-            return find_machine.reference_golds_default(self.spec)
+            gold_dir = find_machine.reference_golds_default(self.spec)
+        if not os.path.isdir(gold_dir):
+            raise Exception(f"Supplied referenced golds path is not valid: {gold_dir}")
+        return gold_dir
+
 
