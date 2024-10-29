@@ -10,8 +10,6 @@ from spack.pkg.builtin.amr_wind import AmrWind as bAmrWind
 from spack.pkg.exawind.ctest_package import *
 
 class AmrWind(bAmrWind, CtestPackage):
-    version("main", branch="main", submodules=True, preferred=True)
-    version("3.1.6", tag="v3.1.6", submodules=True)
     version("multiphase", branch="multiphase_dev", submodules=True)
     version("terrain", git="https://github.com/hgopalan/amr-wind.git", branch="hgopalan-terrain", submodules=True)
     
