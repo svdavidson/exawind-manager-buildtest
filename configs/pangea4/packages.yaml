@@ -1,21 +1,29 @@
 packages:
-  cray-mpich:
-    require: "@=8.1.27"
-    buildable: false
-    externals:
-      - spec: "cray-mpich@=8.1.27"
-        prefix: /opt/cray/pe/mpich/8.1.27/ofi/gnu/10.3/bin/mpicc
-        modules:
-          - libfabric/1.13.1
-  openmpi:
-    require: "@=4.1.6"
-    buildable: false
-    externals:
-    - spec: openmpi@4.1.6
-      prefix: /lustre/p4scratch/data_local/sw/RHEL8/spack-0.21.0/opt/gcc-12.1/openmpi-4.1.6-7mxo5v7
+  all:
+    compiler: [gcc@13.2.0]
+    variants: cuda_arch=90
+    target: [zen4]
+    providers:
+      mpi: [openmpi]
+      blas: [openblas]
+      lapack: [openblas]
   mpi:
-    require: "cray-mpich@8.1.27"
-    #require: "openmpi@4.1.6"
+    require: "openmpi@4.1.4"
+    #require: "cray-mpich@8.1.27"
+  #cray-mpich:
+  #  require: "@=8.1.27"
+  #  buildable: false
+  #  externals:
+  #    - spec: "cray-mpich@=8.1.27"
+  #      prefix: /opt/cray/pe/mpich/8.1.27/ofi/gnu/10.3/bin/mpicc
+  #      modules:
+  #        - libfabric/1.13.1
+  openmpi:
+    require: "@4.1.4"
+    buildable: false
+    externals:
+    - spec: openmpi@4.1.4
+      prefix: /workrd/WIND/apps/exawind/2024-10/pangea4/main
   blas:
     require: "openblas"
   lapack:
@@ -26,14 +34,6 @@ packages:
     externals:
     - spec: slurm@23.02.7
       prefix: /usr
-  all:
-    compiler: [gcc@13.2.0]
-    variants: cuda_arch=90
-    target: [zen4]
-    providers:
-      mpi: [mpich]
-      blas: [openblas]
-      lapack: [openblas]
 
 #      prefix: /lustre/p4scratch/data_local/sw/RHEL8/spack-0.21.0/opt/cce-16.0.1/openmpi-4.1.6-zyahxpk
 #  all:
