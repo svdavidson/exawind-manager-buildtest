@@ -4,7 +4,7 @@ spack:
     reuse: false 
   view: false
   specs:
-    - 'openfast@3.5.3+hdf5+openmp %gcc'
+    - 'openfast@3.5.3+openmp %gcc'
     - 'amr-wind@main+openfast+hdf5+netcdf+openmp ^openfast@3.5.3 %gcc'
     - 'nalu-wind@2.1.0 %gcc'
 
