@@ -4,7 +4,7 @@ packages:
     buildable: false
     externals:
       - spec: "cray-mpich@=8.1.27"
-        prefix: /opt/cray/pe/mpich/8.1.27/ofi/crayclang/16.0
+        prefix: /opt/cray/pe/mpich/8.1.27/ofi/gnu/10.3/bin/mpicc
         modules:
           - libfabric/1.13.1
   openmpi:
@@ -14,8 +14,8 @@ packages:
     - spec: openmpi@4.1.6
       prefix: /lustre/p4scratch/data_local/sw/RHEL8/spack-0.21.0/opt/gcc-12.1/openmpi-4.1.6-7mxo5v7
   mpi:
-    require: "openmpi@4.1.6"
-    #require: "cray-mpich@8.1.27"
+    require: "cray-mpich@8.1.27"
+    #require: "openmpi@4.1.6"
   blas:
     require: "openblas"
   lapack:
