@@ -23,7 +23,7 @@ packages:
     buildable: false
     externals:
     - spec: openmpi@4.1.4
-      prefix: /workrd/WIND/apps/exawind/2024-10/pangea4/main/openmpi-4.1.4/
+      prefix: <BUILD_DIR>/openmpi-4.1.4/
   blas:
     require: "openblas"
   lapack:
