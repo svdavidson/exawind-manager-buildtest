@@ -15,7 +15,7 @@ packages:
     buildable: false
     externals:
       - spec: "cray-mpich@8.1.27"
-        prefix: /opt/cray/pe/mpich/8.1.27/ofi/gnu/10.3/bin/mpicc
+        prefix: /opt/cray/pe/mpich/8.1.27/ofi/gnu/10.3/
         modules:
           - libfabric/1.13.1
   #openmpi:
