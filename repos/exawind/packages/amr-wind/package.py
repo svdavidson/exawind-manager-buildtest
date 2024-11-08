@@ -10,9 +10,6 @@ from spack.pkg.builtin.amr_wind import AmrWind as bAmrWind
 from spack.pkg.exawind.ctest_package import *
 
 class AmrWind(bAmrWind, CtestPackage):
-    version("multiphase", branch="multiphase_dev", submodules=True)
-    version("terrain", git="https://github.com/hgopalan/amr-wind.git", branch="hgopalan-terrain", submodules=True)
-    
     variant("asan", default=False, description="Turn on address sanitizer")
     variant("clangtidy", default=False, description="Turn on clang-tidy")
 
