@@ -19,7 +19,7 @@ packages:
     buildable: false
     externals:
     - spec: openmpi@4.1.4
-      prefix: /apps/exawind/2023-11/x86_64/openmpi-4.1.4
+      prefix: <BUILD_DIR>/openmpi-4.1.4/
   curl:
     require: "@7.29.0"
     externals:
