@@ -4,7 +4,10 @@ spack:
     reuse: false 
   view: false
   specs:
-    - 'amr-wind@3.2.0+openfast+hdf5+netcdf+openmp~tiny_profile ^openfast@3.5.4+cxx+openmp+fastfarm+netcdf+rosco ^hdf5@1.12.2 %gcc'
+    - 'amr-wind@3.2.0+openfast+hdf5+netcdf+openmp~tiny_profile ^openfast@3.5.4+cxx+openmp+fastfarm+netcdf+rosco %gcc'
+
+
+    # - 'amr-wind@3.2.0+openfast+hdf5+netcdf+openmp~tiny_profile ^openfast@3.5.4+cxx+openmp+fastfarm+netcdf+rosco ^hdf5@1.12.2 %gcc'
 
     # trilinos not found
     #- 'nalu-wind@2.1.0+hypre+fsi+openfast+tioga %gcc'
