@@ -4,26 +4,26 @@ packages:
     variants: cuda_arch=90
     target: [zen4]
     providers:
-      mpi: [openmpi]
+      mpi: [cray-mpich]
       blas: [openblas]
       lapack: [openblas]
   mpi:
-    require: "openmpi@4.1.4"
-    #require: "cray-mpich@8.1.27"
-  #cray-mpich:
-  #  require: "@=8.1.27"
-  #  buildable: false
-  #  externals:
-  #    - spec: "cray-mpich@=8.1.27"
-  #      prefix: /opt/cray/pe/mpich/8.1.27/ofi/gnu/10.3/bin/mpicc
-  #      modules:
-  #        - libfabric/1.13.1
-  openmpi:
-    require: "@4.1.4"
+    require: "cray-mpich@8.1.27"
+    #require: "openmpi@4.1.4"
+  cray-mpich:
+    require: "@8.1.27"
     buildable: false
     externals:
-    - spec: openmpi@4.1.4
-      prefix: <BUILD_DIR>/openmpi-4.1.4/
+      - spec: "cray-mpich@8.1.27"
+        prefix: /opt/cray/pe/mpich/8.1.27/ofi/gnu/10.3/
+        modules:
+          - libfabric/1.13.1
+  #openmpi:
+  #  require: "@4.1.4"
+  #  buildable: false
+  #  externals:
+  #  - spec: openmpi@4.1.4
+  #    prefix: /workrd/WIND/apps/exawind/2024-10/pangea4/main
   blas:
     require: "openblas"
   lapack:
