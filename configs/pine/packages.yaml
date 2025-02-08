@@ -7,7 +7,7 @@ packages:
       blas: [openblas]
       lapack: [openblas]
   mpi:
-    require: 'openmpi@4.1.4'
+    require: 'openmpi@5.0.5'
   mpich:
     variants: netmod=ucx device=ch4 +slurm +hydra
   ucx:
