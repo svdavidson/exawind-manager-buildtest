@@ -28,11 +28,11 @@ packages:
   lapack:
     require: "openblas"
   openmpi:
-    require: "@5.0.5"
+    require: "@4.1.4"
     buildable: false
     externals:
-    - spec: openmpi@5.0.5
-      prefix: /hrtc/apps/mpi/openmpi/x86_64/rocky9/5.0.5/gcc/11.4.1/noib
+    - spec: openmpi@4.1.4
+      prefix: <BUILD_DIR>/openmpi-4.1.4/
 
 #      prefix: $spack/../../openmpi-4.1.4/
 #      prefix: /shared/data1/Projects/WIND/apps/exawind/2024-09/genoa/exawind-terrain/openmpi-4.1.4/
