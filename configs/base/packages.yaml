@@ -1,8 +1,25 @@
+#
+# 1. This is how nalu-wind was previously built for TotalEnergies scaling studies
+#
+#   TPLs: Boost, HDF5, netCDF, STK, Trilinos, yaml-cpp and zlib
+#   Optional TPLs enabled: OpenFAST, Hypre, TIOGA
+#
+# 2. Here were the defaults from below with ~trilinos-solvers
+#
+#   TPLs: Boost, HDF5, netCDF, STK, Trilinos, yaml-cpp and zlib
+#   Optional TPLs enabled: OpenFAST, Hypre, TIOGA
+#
+# But I got the following error when I ran with #2
+#
+#   what():  Trilinos solver support must be enabled during compile time.
+#
+
 packages:
   ascent:
     variants: ~fortran~openmp
   nalu-wind:
-    variants: ~trilinos-solvers
+    variants: +trilinos-solvers
+#    variants: ~trilinos-solvers
   amr-wind:
     variants: +tiny_profile
   conduit:
