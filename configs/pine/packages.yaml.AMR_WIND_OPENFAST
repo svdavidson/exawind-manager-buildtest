@@ -8,7 +8,6 @@ packages:
       lapack: [openblas]
   mpi:
     require: 'openmpi@4.1.4'
-    #require: 'openmpi@5.0.5'
   mpich:
     variants: netmod=ucx device=ch4 +slurm +hydra
   ucx:
@@ -29,24 +28,16 @@ packages:
   lapack:
     require: "openblas"
   openmpi:
-    #require: "@5.0.5"
     require: "@4.1.4"
     buildable: false
     externals:
     - spec: openmpi@4.1.4
-      prefix: <BUILD_DIR>/openmpi-4.1.4/
-    - spec: openmpi@5.0.5
-      prefix: /hrtc/apps/mpi/openmpi/x86_64/rocky9/5.0.5/gcc/11.4.1/noib
-  nalu-wind:
-    require: +trilinos-solvers
+      prefix: /apps/exawind/2024-09/genoa_x86_64/exawind-terrain/openmpi-4.1.4/
   amr-wind:
-    variants: +tiny_profile +openfast ^openfast+openmp+shared+rosco
+    variants: +tiny_profile +openfast
+  openfast:
+    variants: +openmp +shared +rosco
 
-#      prefix: $spack/../../openmpi-4.1.4/
-#      prefix: /shared/data1/Projects/WIND/apps/exawind/2024-09/genoa/exawind-terrain/openmpi-4.1.4/
-#
-#      prefix: /apps/exawind/2024-09/genoa_x86_64/exawind-terrain/openmpi-4.1.4/
-#
 #  openmpi:
 #    variants: +pmi +cuda fabrics=verbs schedulers=slurm legacylaunchers=true ~vt
 #  mpich:
@@ -74,5 +65,3 @@ packages:
 #    variants: +verbs
 #  libfabric:
 #    variants: fabrics=verbs,mlx,ucx,sockets,tcp,udp,shm
-
-
