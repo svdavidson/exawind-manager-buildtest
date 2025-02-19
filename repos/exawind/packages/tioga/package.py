@@ -6,10 +6,13 @@
 # for more details.
 
 from spack import *
+from spack.package import *
 from spack.pkg.builtin.tioga import Tioga as bTioga
 from spack.pkg.exawind.ctest_package import *
 
 class Tioga(bTioga, CtestPackage):
+    version("1.3.0", git="https://github.com/Exawind/tioga.git", tag="v1.3.0")
+
     variant("asan", default=False, description="turn on address sanitizer")
 
     def cmake_args(self):
@@ -26,3 +29,4 @@ class Tioga(bTioga, CtestPackage):
         super().setup_build_environment(env)
         if spec.satisfies("+asan"):
             env.append_flags("CXXFLAGS", "-fsanitize=address -fno-omit-frame-pointer -fsanitize-blacklist={0}".format(join_path(self.package_dir, "sup.asan")))
+            env.set("LSAN_OPTIONS", "verbosity=1:log_threads=1")

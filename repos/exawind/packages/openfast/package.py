@@ -5,8 +5,9 @@
 # This software is released under the BSD 3-clause license. See LICENSE file
 # for more details.
 
+from spack import *
+from spack.package import *
 from spack.pkg.builtin.openfast import Openfast as bOpenfast
 
 class Openfast(bOpenfast):
-    version("develop", commit="024dbc1816ca8caeefcc720b1099397730b1ec0a")
     patch("openmp.patch", when="@3.5.3:3.5.4")
