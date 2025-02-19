@@ -34,6 +34,12 @@ packages:
     externals:
     - spec: slurm@23.02.7
       prefix: /usr
+  nalu-wind:
+    require: +trilinos-solvers
+  amr-wind:
+    require: "@3.4.0"
+    variants: +tiny_profile +openfast@4.0.2 ^openfast+openmp+shared+rosco
+
 
 #      prefix: /lustre/p4scratch/data_local/sw/RHEL8/spack-0.21.0/opt/cce-16.0.1/openmpi-4.1.6-zyahxpk
 #  all:

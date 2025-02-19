@@ -4,8 +4,9 @@ spack:
     reuse: false 
   view: false
   specs:
-    - 'exawind@master~amr_wind_gpu~nalu_wind_gpu ^amr-wind@main %gcc'
+    - 'exawind@master~amr_wind_gpu~nalu_wind_gpu ^amr-wind@3.4.0 %gcc'
 
+    # - 'exawind@master~amr_wind_gpu~nalu_wind_gpu ^amr-wind@main %gcc'
     # - 'exawind@terrain~amr_wind_gpu~nalu_wind_gpu %gcc'
     #- 'exawind@terrain~amr_wind_gpu~nalu_wind_gpu %oneapi'
 
