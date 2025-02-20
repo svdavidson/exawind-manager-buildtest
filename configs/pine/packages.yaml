@@ -40,9 +40,14 @@ packages:
   nalu-wind:
     require: +trilinos-solvers
   amr-wind:
-    require: "@3.4.0"
-    variants: +tiny_profile +openfast@4.0.2 ^openfast+openmp+shared+rosco
+    variants: +tiny_profile +openfast
+  openfast:
+    variants: +openmp +shared +rosco
 
+#  amr-wind:
+#    require: "@3.4.0"
+#    variants: +tiny_profile +openfast@4.0.2 ^openfast+openmp+shared+rosco
+#
 #      prefix: $spack/../../openmpi-4.1.4/
 #      prefix: /shared/data1/Projects/WIND/apps/exawind/2024-09/genoa/exawind-terrain/openmpi-4.1.4/
 #
