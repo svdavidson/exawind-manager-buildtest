@@ -12,12 +12,11 @@ from spack.pkg.exawind.ctest_package import *
 find_machine = importlib.import_module("find-exawind-manager")
 
 class NaluWind(bNaluWind, CtestPackage):
+    version("2.2.1", tag="v2.2.1", submodules=True)
     version("2.2.0", tag="v2.2.0", submodules=True)
 
     variant("asan", default=False, description="Turn on address sanitizer")
     variant("unit-tests", default=True, description="Activate unit tests")
-
-    depends_on("openfast@4.0.2", when="+fsi")
 
     requires("+tests", when="+cdash_submit")
 
@@ -56,11 +55,6 @@ class NaluWind(bNaluWind, CtestPackage):
         spec = self.spec
 
         cmake_options = super().cmake_args()
-
-        cmake_options.append(self.define_from_variant("ENABLE_OPENFAST_FSI", "fsi"))
-        if spec.satisfies("+fsi"):
-            cmake_options.append(self.define("OpenFAST_DIR", spec["openfast"].prefix))
-            cmake_options.append(self.define("ENABLE_OPENFAST", True))
 
         if spec.satisfies("+tests") or self.run_tests or spec.satisfies("dev_path=*"):
             cmake_options.append(self.define("CMAKE_EXPORT_COMPILE_COMMANDS",True))
