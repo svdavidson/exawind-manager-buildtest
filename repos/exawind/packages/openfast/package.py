@@ -11,3 +11,5 @@ from spack.pkg.builtin.openfast import Openfast as bOpenfast
 
 class Openfast(bOpenfast):
     patch("openmp.patch", when="@3.5.3:3.5.4")
+    version("4.0.3", tag="v4.0.3")
+

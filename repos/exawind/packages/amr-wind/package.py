@@ -12,6 +12,7 @@ from spack.pkg.exawind.ctest_package import *
 find_machine = importlib.import_module("find-exawind-manager")
 
 class AmrWind(bAmrWind, CtestPackage):
+    version("industrial", git="https://github.com/hgopalan/amr-wind.git", branch="industrial_version", submodules=True)
     variant("asan", default=False, description="Turn on address sanitizer")
     variant("clangtidy", default=False, description="Turn on clang-tidy")
 
