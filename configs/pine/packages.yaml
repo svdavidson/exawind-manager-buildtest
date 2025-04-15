@@ -42,7 +42,9 @@ packages:
   amr-wind:
     variants: +tiny_profile +openfast
   openfast:
-    variants: ~openmp +shared +rosco +fastfarm +netcdf
+    variants: +openmp +shared +rosco +fastfarm +netcdf
+
+    #variants: ~openmp +shared +rosco +fastfarm +netcdf
 
 #  amr-wind:
 #    require: "@3.4.0"
