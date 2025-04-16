@@ -4,7 +4,7 @@ spack:
     reuse: false 
   view: false
   specs:
-    - 'exawind@master~amr_wind_gpu~nalu_wind_gpu ^amr-wind@industrial %gcc'
+    - amr-wind@industrial %gcc
     
     #- 'exawind@master~amr_wind_gpu~nalu_wind_gpu ^amr-wind@3.4.0 %gcc'
 
