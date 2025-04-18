@@ -1,0 +1,85 @@
+packages:
+  all:
+    compiler: [gcc@11.4.1]
+    target: [zen2]
+    providers:
+      mpi: [openmpi]
+      blas: [openblas]
+      lapack: [openblas]
+  mpi:
+    require: 'openmpi@4.1.4'
+    #require: 'openmpi@5.0.5'
+  mpich:
+    variants: netmod=ucx device=ch4 +slurm +hydra
+  ucx:
+    variants: +verbs
+  curl:
+    require: "@7.76.1"
+    externals:
+    - spec: curl@7.76.1
+      prefix: /usr/bin/curl
+    buildable: False
+  slurm:
+    externals:
+    - spec: slurm@23.11.6
+      prefix: /apps/slurm/x86/23.11.6-pine
+    buildable: False
+  blas:
+    require: "openblas"
+  lapack:
+    require: "openblas"
+  openmpi:
+    #require: "@5.0.5"
+    require: "@4.1.4"
+    buildable: false
+    externals:
+    - spec: openmpi@4.1.4
+      prefix: <BUILD_DIR>/openmpi-4.1.4/
+    - spec: openmpi@5.0.5
+      prefix: /hrtc/apps/mpi/openmpi/x86_64/rocky9/5.0.5/gcc/11.4.1/noib
+  nalu-wind:
+    require: +trilinos-solvers
+
+#  amr-wind:
+#    variants: +tiny_profile +openfast +netcdf
+#  openfast:
+#    variants: +openmp +shared +rosco +fastfarm +netcdf
+#
+#  amr-wind:
+#    require: "@3.4.0"
+#    variants: +tiny_profile +openfast@4.0.2 ^openfast+openmp+shared+rosco
+#
+#      prefix: $spack/../../openmpi-4.1.4/
+#      prefix: /shared/data1/Projects/WIND/apps/exawind/2024-09/genoa/exawind-terrain/openmpi-4.1.4/
+#
+#      prefix: /apps/exawind/2024-09/genoa_x86_64/exawind-terrain/openmpi-4.1.4/
+#
+#  openmpi:
+#    variants: +pmi +cuda fabrics=verbs schedulers=slurm legacylaunchers=true ~vt
+#  mpich:
+#    variants: netmod=ucx device=ch4 +slurm +hydra
+#  nalu-wind:
+#    variants: +openfast~wind-utils+boost+trilinos-solvers
+#  openmpi:
+#    require: "@4.1.4"
+#    buildable: false
+#    externals:
+#    - spec: openmpi@4.1.4
+#      prefix: /apps/exawind/2023-11/x86_64/openmpi-4.1.4
+#  openmpi:
+#    require:
+#      - "@4.1.6"
+#      - "cflags='-I/usr/include/infiniband'"
+#
+#
+#  OpenMPI with ucx - haven't tried
+#
+#  openmpi:
+#    require: "@4.1.6"
+#    variants: fabrics=ucx schedulers=slurm legacylaunchers=true ~vt
+#  ucx:
+#    variants: +verbs
+#  libfabric:
+#    variants: fabrics=verbs,mlx,ucx,sockets,tcp,udp,shm
+
+
