@@ -12,8 +12,6 @@ from spack.pkg.exawind.ctest_package import *
 find_machine = importlib.import_module("find-exawind-manager")
 
 class Exawind(bExawind, CtestPackage):
-    version("1.2.0", tag="v1.2.0", submodules=True)
-
     variant("asan", default=False, description="Turn on address sanitizer")
     variant("tests", default=False, description="Activate regression tests")
 
@@ -25,9 +23,10 @@ class Exawind(bExawind, CtestPackage):
 
         if spec.satisfies("dev_path=*"):
             cmake_options.append(self.define("CMAKE_EXPORT_COMPILE_COMMANDS", True))
+            cmake_options.append(self.define("EXAWIND_ENABLE_TESTS", True))
 
-        cmake_options += [self.define_from_variant("EXAWIND_ENABLE_TESTS", "tests")]
         if spec.satisfies("+tests"):
+            cmake_options.append(self.define("EXAWIND_ENABLE_TESTS", True))
             cmake_options.append(self.define("EXAWIND_TEST_WITH_FCOMPARE", True))
             cmake_options.append(self.define("EXAWIND_SAVE_GOLDS", True))
             cmake_options.append(self.define("EXAWIND_SAVED_GOLDS_DIRECTORY", super().saved_golds_dir))

@@ -87,6 +87,8 @@ machine_list = {
     # ALCF
     "aurora": MachineData(lambda: "aurora" in socket.getfqdn(), "aurora.alcf.anl.gov"),
     "sunspot": MachineData(lambda: "americas.sgi.com" in socket.getfqdn(), "sunspot.alcf.anl.gov"),
+    # NCAR
+    "derecho": MachineData(lambda: os.environ["NCAR_HOST"] == "derecho", "derecho.ucar.edu"),
     # E4S
     "e4s": MachineData(lambda: is_e4s(), "e4s.nodomain.gov"),
     # Azure
@@ -124,7 +126,7 @@ def detector(name):
             except Exception:
                 """
                 all other errors will be raised and kill the program
-                we can add more excpetions to the pass list as needed
+                we can add more exceptions to the pass list as needed
                 in the future
                 """
                 raise
