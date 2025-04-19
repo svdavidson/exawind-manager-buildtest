@@ -38,7 +38,7 @@ packages:
     - spec: openmpi@5.0.5
       prefix: /hrtc/apps/mpi/openmpi/x86_64/rocky9/5.0.5/gcc/11.4.1/noib
   nalu-wind:
-    require: ~trilinos-solvers +tioga +openfast
+    require: ~trilinos-solvers
 
 #  amr-wind:
 #    variants: +tiny_profile +openfast +netcdf
