@@ -37,9 +37,9 @@ packages:
   nalu-wind:
     require: +trilinos-solvers
   amr-wind:
-    variants: +tiny_profile +openfast
+    variants: +tiny_profile +openfast +netcdf
   openfast:
-    variants: ~openmp +shared +rosco +fastfarm +netcdf
+    variants: +openmp +shared +rosco +fastfarm +netcdf
 
 #  amr-wind:
 #    require: "@3.4.0"
