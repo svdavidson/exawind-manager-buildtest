@@ -1,0 +1,30 @@
+spack:
+  concretizer:
+    unify: false
+    reuse: false 
+  view: false
+  specs:
+    - amr-wind@industrial+mpi+netcdf+openfast+shared+tests+tiny_profile %gcc
+    
+    #- 'exawind@master~amr_wind_gpu~nalu_wind_gpu ^amr-wind@3.4.0 %gcc'
+
+    #- 'exawind@master~amr_wind_gpu~nalu_wind_gpu ^amr-wind@main %gcc'
+
+    #- 'exawind@terrain~amr_wind_gpu~nalu_wind_gpu %gcc'
+
+    #- 'exawind@terrain~amr_wind_gpu~nalu_wind_gpu %oneapi'
+    #
+    #- exawind@master ^nalu-wind@master+openfast+wind-utils+boost~trilinos-solvers
+
+    #- 'netcdf-c%oneapi'
+    #- 'amr-wind@terrain+netcdf %oneapi'
+
+    #- 'amr-wind@terrain+netcdf%oneapi %oneapi'
+    #- 'nalu-wind%oneapi'
+
+    #- 'exawind~amr_wind_gpu~nalu_wind_gpu %oneapi'
+      #- 'amr-wind@terrain %oneapi'
+      #- 'exawind~amr_wind_gpu~nalu_wind_gpu %gcc'
+      #- 'exawind+amr_wind_gpu~nalu_wind_gpu+cuda %gcc'
+      #- 'exawind~amr_wind_gpu+nalu_wind_gpu+cuda %gcc'
+      #- 'exawind+amr_wind_gpu+nalu_wind_gpu+cuda %gcc'
