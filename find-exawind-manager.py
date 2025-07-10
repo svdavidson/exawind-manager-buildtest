@@ -52,7 +52,7 @@ def is_e4s():
 
 
 def is_pangea4(hostname):
-    known_hosts = ("p4intlog01", "p4intlog02", "p4log01", "p4log02")
+    known_hosts = ("p4intlog01", "p4intlog02", "p4log01", "p4log02", "p4log03", "p4log04")
     for k in known_hosts:
         if k in hostname:
             return True
