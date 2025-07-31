@@ -4,9 +4,9 @@ spack:
     reuse: false 
   view: false
   specs:
-    - 'exawind@master~amr_wind_gpu~nalu_wind_gpu ^amr-wind@3.6.0+openfast+waves2amr+netcdf+hdf5%gcc ^openfast@4.1.1+rosco+openmp+fastfarm%gcc'
+    - 'exawind@master~amr_wind_gpu~nalu_wind_gpu ^amr-wind@3.6.0+openfast+waves2amr+netcdf+hdf5 ^openfast@4.1.1+rosco+openmp+fastfarm %gcc'
 
-    #- 'exawind@master~amr_wind_gpu~nalu_wind_gpu ^amr-wind@3.6.0+openfast+waves2amr+netcdf+hdf5%openapi ^openfast@4.1.1+rosco+openmp+fastfarm%openapi'
+    #- 'exawind@master~amr_wind_gpu~nalu_wind_gpu ^amr-wind@3.6.0+openfast+waves2amr+netcdf+hdf5 ^openfast@4.1.1+rosco+openmp+fastfarm %openmpi'
 
     #- 'exawind@master~amr_wind_gpu~nalu_wind_gpu ^amr-wind@3.4.0 %gcc'
 
