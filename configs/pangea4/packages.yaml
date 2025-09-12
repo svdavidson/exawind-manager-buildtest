@@ -8,14 +8,14 @@ packages:
       blas: [openblas]
       lapack: [openblas]
   mpi:
-    require: "cray-mpich@8.1.27"
+    require: "cray-mpich@8.1.31"
     #require: "openmpi@4.1.4"
   cray-mpich:
-    require: "@8.1.27"
+    require: "@8.1.31"
     buildable: false
     externals:
-      - spec: "cray-mpich@8.1.27"
-        prefix: /opt/cray/pe/mpich/8.1.27/ofi/gnu/10.3/
+      - spec: "cray-mpich@8.1.31"
+        prefix: /opt/cray/pe/mpich/8.1.31/ofi/gnu/10.3/
         modules:
           - libfabric/1.13.1
   #openmpi:
