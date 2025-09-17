@@ -1,7 +1,7 @@
 packages:
   all:
-    compiler: [gcc@11.4.1]
-    target: [zen2]
+    compiler: [gcc@13.3.0]
+    target: [znver4]
     providers:
       mpi: [openmpi]
       blas: [openblas]
@@ -36,7 +36,7 @@ packages:
     - spec: openmpi@4.1.4
       prefix: <BUILD_DIR>/openmpi-4.1.4/
     - spec: openmpi@5.0.5
-      prefix: /hrtc/apps/mpi/openmpi/x86_64/rocky9/5.0.5/gcc/11.4.1/noib
+      prefix: /hrtc/apps/mpi/openmpi/x86_64/rocky9/5.0.5/gcc/13.3.0/nocuda/
   nalu-wind:
     require: +trilinos-solvers
   amr-wind:
