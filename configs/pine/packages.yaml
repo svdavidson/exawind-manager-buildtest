@@ -2,6 +2,8 @@ packages:
   all:
     compiler: [gcc@13.3.0]
     target: [znver4]
+    cflags: "-march=znver4 -mtune=znver4"
+    cppflags: "-march=znver4 -mtune=znver4"
     providers:
       mpi: [openmpi]
       blas: [openblas]
