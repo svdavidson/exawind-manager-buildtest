@@ -1,74 +1,34 @@
 packages:
-
   all:
-    compiler: [gcc@13.3.0]
-    flags:
-      cflags:   -march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast
-      cxxflags: -march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast
-      fflags:   -march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast
-      cppflags: -DNDEBUG
+    compiler: [gcc@13.3.0-optimized]
     providers:
-      c: [gcc@13.3.0]
-      cxx: [gcc@13.3.0]
-      fortran: [gcc@13.3.0]
       mpi: [openmpi]
       blas: [openblas]
       lapack: [openblas]
-
-  gcc:
-    externals:
-      - spec: gcc@13.3.0
-        prefix: /hrtc/apps/devtools/spack/PINE/linux-rocky9-zen4/gcc-11.4.1/gcc-13.3.0-s6z5ak5dds7jmlohxs2bctxhyhgfwhgs
-        modules:
-          - gcc/13.3.0
-        extra_attributes:
-          compilers:
-            c: /hrtc/apps/devtools/spack/PINE/linux-rocky9-zen4/gcc-11.4.1/gcc-13.3.0-s6z5ak5dds7jmlohxs2bctxhyhgfwhgs/bin/gcc
-            cxx: /hrtc/apps/devtools/spack/PINE/linux-rocky9-zen4/gcc-11.4.1/gcc-13.3.0-s6z5ak5dds7jmlohxs2bctxhyhgfwhgs/bin/g++
-            fortran: /hrtc/apps/devtools/spack/PINE/linux-rocky9-zen4/gcc-11.4.1/gcc-13.3.0-s6z5ak5dds7jmlohxs2bctxhyhgfwhgs/bin/gfortran
-          operating_system: rocky9
-          target: x86_64
-          flags:
-            cflags:   '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
-            cxxflags: '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
-            fflags:   '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
-            cppflags: '-DNDEBUG'
-
   openblas:
     compiler: [gcc@13.3.0]
-    cflags: ''
-    cxxflags: ''
-    fflags: ''
-    cppflags: ''
-
   mpi:
     require: 'openmpi@4.1.4'
-
+    #require: 'openmpi@5.0.5'
   mpich:
     variants: netmod=ucx device=ch4 +slurm +hydra
-
   ucx:
     variants: +verbs
-
   curl:
     require: "@7.76.1"
     externals:
     - spec: curl@7.76.1
       prefix: /usr/bin/curl
     buildable: False
-
   slurm:
     externals:
     - spec: slurm@23.11.6
       prefix: /apps/slurm/x86/23.11.6-pine
     buildable: False
-
   blas:
     require: "openblas"
-
   lapack:
     require: "openblas"
-
   openmpi:
     #require: "@5.0.5"
     require: "@4.1.4"
@@ -78,13 +38,10 @@ packages:
       prefix: <BUILD_DIR>/openmpi-4.1.4/
     - spec: openmpi@5.0.5
       prefix: /hrtc/apps/mpi/openmpi/x86_64/rocky9/5.0.5/gcc/13.3.0/nocuda/
-
   nalu-wind:
     require: +trilinos-solvers
-
   amr-wind:
     variants: +tiny_profile +openfast +netcdf
-
   openfast:
     variants: +openmp +shared +rosco +fastfarm +netcdf
 
