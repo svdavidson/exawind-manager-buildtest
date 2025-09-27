@@ -1,4 +1,13 @@
 packages:
+  all:
+    compiler: [gcc@13.3.0]
+    providers:
+      c: [gcc@13.3.0]
+      cxx: [gcc@13.3.0]
+      fortran: [gcc@13.3.0]
+      mpi: [openmpi]
+      blas: [openblas]
+      lapack: [openblas]
   gcc:
     externals:
       - spec: gcc@13.3.0
@@ -17,16 +26,7 @@ packages:
             cxxflags: '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
             fflags:   '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
             cppflags: '-DNDEBUG'
-  all:
-    compiler: [gcc@13.3.0]
-    providers:
-      c: [gcc@13.3.0]
-      cxx: [gcc@13.3.0]
-      fortran: [gcc@13.3.0]
-      mpi: [openmpi]
-      blas: [openblas]
-      lapack: [openblas]
-  openblas:     # override compiler flags for openblas because they break the build
+  openblas:
     compiler: [gcc@13.3.0]
     cflags: ''
     cxxflags: ''
@@ -34,7 +34,6 @@ packages:
     cppflags: ''
   mpi:
     require: 'openmpi@4.1.4'
-    #require: 'openmpi@5.0.5'
   mpich:
     variants: netmod=ucx device=ch4 +slurm +hydra
   ucx:
