@@ -25,7 +25,7 @@ compilers:
       cflags:   '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
       cxxflags: '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
       fflags:   '-march=native -mtune=native'
-      ccpflags: '-DNDEBUG'
+      cppflags: '-DNDEBUG'
     operating_system: rocky9
     target: x86_64
     modules: [ gcc/13.3.0 ]
