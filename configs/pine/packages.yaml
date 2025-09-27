@@ -1,4 +1,5 @@
 packages:
+
   all:
     compiler: [gcc@13.3.0]
     providers:
@@ -8,6 +9,12 @@ packages:
       mpi: [openmpi]
       blas: [openblas]
       lapack: [openblas]
+    compiler_flags:
+      cflags:   [ '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast' ]
+      cxxflags: [ '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast' ]
+      fflags:   [ '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast' ]
+      cppflags: [ '-DNDEBUG' ]
+
   gcc:
     externals:
       - spec: gcc@13.3.0
@@ -26,33 +33,42 @@ packages:
             cxxflags: '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
             fflags:   '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
             cppflags: '-DNDEBUG'
+
   openblas:
     compiler: [gcc@13.3.0]
     cflags: ''
     cxxflags: ''
     fflags: ''
     cppflags: ''
+
   mpi:
     require: 'openmpi@4.1.4'
+
   mpich:
     variants: netmod=ucx device=ch4 +slurm +hydra
+
   ucx:
     variants: +verbs
+
   curl:
     require: "@7.76.1"
     externals:
     - spec: curl@7.76.1
       prefix: /usr/bin/curl
     buildable: False
+
   slurm:
     externals:
     - spec: slurm@23.11.6
       prefix: /apps/slurm/x86/23.11.6-pine
     buildable: False
+
   blas:
     require: "openblas"
+
   lapack:
     require: "openblas"
+
   openmpi:
     #require: "@5.0.5"
     require: "@4.1.4"
@@ -62,10 +78,13 @@ packages:
       prefix: <BUILD_DIR>/openmpi-4.1.4/
     - spec: openmpi@5.0.5
       prefix: /hrtc/apps/mpi/openmpi/x86_64/rocky9/5.0.5/gcc/13.3.0/nocuda/
+
   nalu-wind:
     require: +trilinos-solvers
+
   amr-wind:
     variants: +tiny_profile +openfast +netcdf
+
   openfast:
     variants: +openmp +shared +rosco +fastfarm +netcdf
 
