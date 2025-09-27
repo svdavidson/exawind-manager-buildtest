@@ -11,11 +11,11 @@ packages:
           modules: [gcc/13.3.0]
           operating_system: [rocky9]
           target: [zen4]
-          #flags:
-          #  cflags:   '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
-          #  cxxflags: '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
-          #  fflags:   '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
-          #  cppflags: '-DNDEBUG'
+          flags:
+            cflags:   '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
+            cxxflags: '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
+            fflags:   '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
+            cppflags: '-DNDEBUG'
 
   all:
     target: [zen4]
@@ -26,11 +26,11 @@ packages:
       mpi: [openmpi]
       blas: [openblas]
       lapack: [openblas]
-    compiler_flags:
-       cflags:   '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
-       cxxflags: '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
-       fflags:   '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
-       cppflags: '-DNDEBUG'
+    #compiler_flags:
+    #   cflags:   '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
+    #   cxxflags: '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
+    #   fflags:   '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
+    #   cppflags: '-DNDEBUG'
   openblas:     # override compiler flags for openblas because they break the build
     compiler_flags:
       cflags: ''
