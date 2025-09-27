@@ -16,7 +16,6 @@ packages:
             cxxflags: '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
             fflags:   '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
             cppflags: '-DNDEBUG'
-
   all:
     target: [zen4]
     providers:
@@ -32,7 +31,7 @@ packages:
     #   fflags:   '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
     #   cppflags: '-DNDEBUG'
   openblas:     # override compiler flags for openblas because they break the build
-    compiler_flags:
+    flags:
       cflags: ''
       cxxflags: ''
       fflags: ''
