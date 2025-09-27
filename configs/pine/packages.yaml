@@ -1,18 +1,38 @@
 packages:
+  gcc:
+    externals:
+      - spec: gcc@13.3.0
+        prefix: /hrtc/apps/devtools/spack/PINE/linux-rocky9-zen4/gcc-11.4.1/gcc-13.3.0-s6z5ak5dds7jmlohxs2bctxhyhgfwhgs
+        extra_attributes:
+          compilers:
+            c: /hrtc/apps/devtools/spack/PINE/linux-rocky9-zen4/gcc-11.4.1/gcc-13.3.0-s6z5ak5dds7jmlohxs2bctxhyhgfwhgs/bin/gcc
+            cxx: /hrtc/apps/devtools/spack/PINE/linux-rocky9-zen4/gcc-11.4.1/gcc-13.3.0-s6z5ak5dds7jmlohxs2bctxhyhgfwhgs/bin/g++
+            fortran: /hrtc/apps/devtools/spack/PINE/linux-rocky9-zen4/gcc-11.4.1/gcc-13.3.0-s6z5ak5dds7jmlohxs2bctxhyhgfwhgs/bin/gfortran
+          modules: [gcc/13.3.0]
+          operating_system: [rocky9]
+          target: [zen4]
+          #flags:
+          #  cflags:   '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
+          #  cxxflags: '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
+          #  fflags:   '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
+          #  cppflags: '-DNDEBUG'
+
   all:
-    compiler: [gcc@13.3.0]
-    target: [znver4]
+    target: [zen4]
     providers:
+      c: [gcc@13.3.0]
+      cxx: [gcc@13.3.0]
+      fortra: [gcc@13.3.0]
       mpi: [openmpi]
       blas: [openblas]
       lapack: [openblas]
-    flags:
-      cflags:   '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
-      cxxflags: '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
-      fflags:   '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
-      cppflags: '-DNDEBUG'
+    compiler_flags:
+       cflags:   '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
+       cxxflags: '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
+       fflags:   '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
+       cppflags: '-DNDEBUG'
   openblas:     # override compiler flags for openblas because they break the build
-    flags:
+    compiler_flags:
       cflags: ''
       cxxflags: ''
       fflags: ''
