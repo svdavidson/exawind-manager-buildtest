@@ -10,14 +10,14 @@ packages:
             fortran: /hrtc/apps/devtools/spack/PINE/linux-rocky9-zen4/gcc-11.4.1/gcc-13.3.0-s6z5ak5dds7jmlohxs2bctxhyhgfwhgs/bin/gfortran
           modules:
             - gcc/13.3.0
+          operating_system: rocky9
+          target: x86_64
           flags:
             cflags:   '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
             cxxflags: '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
             fflags:   '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
             cppflags: '-DNDEBUG'
   all:
-    target: [zen4]
-    operating_system: [rocky9]
     providers:
       c: [gcc@13.3.0]
       cxx: [gcc@13.3.0]
