@@ -25,11 +25,6 @@ packages:
       mpi: [openmpi]
       blas: [openblas]
       lapack: [openblas]
-    #compiler_flags:
-    #   cflags:   '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
-    #   cxxflags: '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
-    #   fflags:   '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
-    #   cppflags: '-DNDEBUG'
   openblas:     # override compiler flags for openblas because they break the build
     flags:
       cflags: ''
