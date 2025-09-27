@@ -18,6 +18,7 @@ packages:
             fflags:   '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
             cppflags: '-DNDEBUG'
   all:
+    compiler: [gcc@13.3.0]
     providers:
       c: [gcc@13.3.0]
       cxx: [gcc@13.3.0]
@@ -26,11 +27,11 @@ packages:
       blas: [openblas]
       lapack: [openblas]
   openblas:     # override compiler flags for openblas because they break the build
-    flags:
-      cflags: ''
-      cxxflags: ''
-      fflags: ''
-      cppflags: ''
+    compiler: [gcc@13.3.0]
+    cflags: ''
+    cxxflags: ''
+    fflags: ''
+    cppflags: ''
   mpi:
     require: 'openmpi@4.1.4'
     #require: 'openmpi@5.0.5'
