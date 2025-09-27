@@ -1,12 +1,12 @@
 packages:
 
   all:
-    compiler_flags:
-      cflags:   [ '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast' ]
-      cxxflags: [ '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast' ]
-      fflags:   [ '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast' ]
-      cppflags: [ '-DNDEBUG' ]
     compiler: [gcc@13.3.0]
+    flags:
+      cflags:   -march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast
+      cxxflags: -march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast
+      fflags:   -march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast
+      cppflags: -DNDEBUG
     providers:
       c: [gcc@13.3.0]
       cxx: [gcc@13.3.0]
