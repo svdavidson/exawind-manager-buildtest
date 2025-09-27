@@ -1,12 +1,4 @@
 packages:
-  all:
-    compiler: [gcc@13.3.0-optimized]
-    providers:
-      mpi: [openmpi]
-      blas: [openblas]
-      lapack: [openblas]
-  openblas:
-    compiler: [gcc@13.3.0]
   mpi:
     require: 'openmpi@4.1.4'
     #require: 'openmpi@5.0.5'
@@ -44,6 +36,14 @@ packages:
     variants: +tiny_profile +openfast +netcdf
   openfast:
     variants: +openmp +shared +rosco +fastfarm +netcdf
+  openblas:
+    compiler: [gcc@13.3.0]
+  all:
+    compiler: [gcc@13.3.0-optimized]
+    providers:
+      mpi: [openmpi]
+      blas: [openblas]
+      lapack: [openblas]
 
     #variants: ~openmp +shared +rosco +fastfarm +netcdf
 
