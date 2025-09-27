@@ -35,14 +35,25 @@ packages:
     variants: +tiny_profile +openfast +netcdf
   openfast:
     variants: +openmp +shared +rosco +fastfarm +netcdf
+  openblas:
+    require: "gcc@13.3.0"
   all:
-    compilers: [gcc@13.3.0-optimized]
     providers:
       mpi: [openmpi]
       blas: [openblas]
       lapack: [openblas]
-  openblas:
-    require: "gcc@13.3.0"
+      c: [gcc@13.3.0-optimized]
+      cxx: [gcc@13.3.0-optimized]
+      fortran:  [gcc@13.3.0-optimized]
+    target: [zen4]
+      
+
+  #all:
+  #  compilers: [gcc@13.3.0-optimized]
+  #  providers:
+  #    mpi: [openmpi]
+  #    blas: [openblas]
+  #    lapack: [openblas]
 
     #variants: ~openmp +shared +rosco +fastfarm +netcdf
 
