@@ -15,7 +15,7 @@ compilers:
     extra_rpaths: []
     
 - compiler:
-    spec: gcc@13.3.0-optimized
+    spec: gcc-optimized@13.3.0
     paths:
       cc: /hrtc/apps/devtools/spack/PINE/linux-rocky9-zen4/gcc-11.4.1/gcc-13.3.0-s6z5ak5dds7jmlohxs2bctxhyhgfwhgs/bin/gcc
       cxx: /hrtc/apps/devtools/spack/PINE/linux-rocky9-zen4/gcc-11.4.1/gcc-13.3.0-s6z5ak5dds7jmlohxs2bctxhyhgfwhgs/bin/g++

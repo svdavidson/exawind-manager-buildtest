@@ -38,13 +38,14 @@ packages:
   openblas:
     require: "%gcc@13.3.0"
   all:
+    require: "%gcc-optimized@13.3.0"
     providers:
       mpi: [openmpi]
       blas: [openblas]
       lapack: [openblas]
-      c: [gcc@13.3.0-optimized]
-      cxx: [gcc@13.3.0-optimized]
-      fortran:  [gcc@13.3.0-optimized]
+      c: [gcc-optimized@13.3.0]
+      cxx: [gcc-optimized@13.3.0]
+      fortran:  [gcc-optimized@13.3.0]
     #target: [zen4]
       
 
