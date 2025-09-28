@@ -22,8 +22,8 @@ compilers:
       f77: /hrtc/apps/devtools/spack/PINE/linux-rocky9-zen4/gcc-11.4.1/gcc-13.3.0-s6z5ak5dds7jmlohxs2bctxhyhgfwhgs/bin/gfortran
       fc: /hrtc/apps/devtools/spack/PINE/linux-rocky9-zen4/gcc-11.4.1/gcc-13.3.0-s6z5ak5dds7jmlohxs2bctxhyhgfwhgs/bin/gfortran
     flags:
-      cflags:   '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
-      cxxflags: '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast'
+      cflags:   '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast -Wno-error'
+      cxxflags: '-march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast -Wno-error'
       fflags:   '-march=native -mtune=native'
       cppflags: '-DNDEBUG'
     operating_system: rocky9
