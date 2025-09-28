@@ -45,7 +45,7 @@ packages:
       c: [gcc@13.3.0-optimized]
       cxx: [gcc@13.3.0-optimized]
       fortran:  [gcc@13.3.0-optimized]
-    target: [zen4]
+    #target: [zen4]
       
 
   #all:
