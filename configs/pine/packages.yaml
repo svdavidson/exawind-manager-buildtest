@@ -18,18 +18,18 @@ packages:
         environment: {}
         extra_rpaths: []
 
-#    - spec: gcc-noflags@13.3.0 languages:='c,c++,fortran'
-#      prefix: /hrtc/apps/devtools/spack/PINE/linux-rocky9-zen4/gcc-11.4.1/gcc-13.3.0-s6z5ak5dds7jmlohxs2bctxhyhgfwhgs
-#      modules:
-#      - gcc/13.3.0
-#      extra_attributes:
-#        compilers:
-#          c: /hrtc/apps/devtools/spack/PINE/linux-rocky9-zen4/gcc-11.4.1/gcc-13.3.0-s6z5ak5dds7jmlohxs2bctxhyhgfwhgs/bin/gcc
-#          cxx: /hrtc/apps/devtools/spack/PINE/linux-rocky9-zen4/gcc-11.4.1/gcc-13.3.0-s6z5ak5dds7jmlohxs2bctxhyhgfwhgs/bin/g++
-#          fortran: /hrtc/apps/devtools/spack/PINE/linux-rocky9-zen4/gcc-11.4.1/gcc-13.3.0-s6z5ak5dds7jmlohxs2bctxhyhgfwhgs/bin/gfortran
-#        flags: {}
-#        environment: {}
-#        extra_rpaths: []
+    - spec: gcc@13.3.0x languages:='c,c++,fortran'
+      prefix: /hrtc/apps/devtools/spack/PINE/linux-rocky9-zen4/gcc-11.4.1/gcc-13.3.0-s6z5ak5dds7jmlohxs2bctxhyhgfwhgs
+      modules:
+      - gcc/13.3.0
+      extra_attributes:
+        compilers:
+          c: /hrtc/apps/devtools/spack/PINE/linux-rocky9-zen4/gcc-11.4.1/gcc-13.3.0-s6z5ak5dds7jmlohxs2bctxhyhgfwhgs/bin/gcc
+          cxx: /hrtc/apps/devtools/spack/PINE/linux-rocky9-zen4/gcc-11.4.1/gcc-13.3.0-s6z5ak5dds7jmlohxs2bctxhyhgfwhgs/bin/g++
+          fortran: /hrtc/apps/devtools/spack/PINE/linux-rocky9-zen4/gcc-11.4.1/gcc-13.3.0-s6z5ak5dds7jmlohxs2bctxhyhgfwhgs/bin/gfortran
+        flags: {}
+        environment: {}
+        extra_rpaths: []
 
   mpi:
     require: 'openmpi@4.1.4'
@@ -67,6 +67,8 @@ packages:
     variants: +tiny_profile +openfast +netcdf
   openfast:
     variants: +openmp +shared +rosco +fastfarm +netcdf
+  openblas:
+    require: "%gcc-@13.3.0x"
   all:
     require: "%gcc@13.3.0"
     providers:
@@ -76,9 +78,6 @@ packages:
       c: [gcc-optimized@13.3.0]
       cxx: [gcc-optimized@13.3.0]
       fortran:  [gcc-optimized@13.3.0]
-
-  #openblas:
-  #  require: "%gcc-noflags@13.3.0"
       
 
   #all:
