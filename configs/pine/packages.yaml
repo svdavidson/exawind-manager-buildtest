@@ -78,10 +78,9 @@ packages:
       mpi: [openmpi]
       blas: [openblas]
       lapack: [openblas]
-      c: [ gcc@13.3.0 gcc@13.3.0x ]
-      cxx: [ gcc@13.3.0 gcc@13.3.0.x ]
-      fortran:  [ gcc@13.3.0 gcc@13.3.0x ]
-      
+      c: [ gcc ]
+      cxx: [ gcc ]
+      fortran:  [ gcc ]
 
   #all:
   #  compilers: [gcc@13.3.0-optimized]
