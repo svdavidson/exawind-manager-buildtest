@@ -15,6 +15,7 @@ packages:
           cxxflags: -march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast -Wno-error
           fflags: -march=native -mtune=native
           cppflags: -DNDEBUG
+          ldflags: -lm
         environment: {}
         extra_rpaths: []
 
@@ -67,8 +68,8 @@ packages:
     variants: +tiny_profile +openfast +netcdf
   openfast:
     variants: +openmp +shared +rosco +fastfarm +netcdf
-  openblas:
-    require: "%gcc@13.3.0x"
+  #openblas:
+  #  require: "%gcc@13.3.0x"
   all:
     #require: "%gcc@13.3.0"
     prefer:
@@ -77,9 +78,9 @@ packages:
       mpi: [openmpi]
       blas: [openblas]
       lapack: [openblas]
-      c: [gcc-optimized@13.3.0]
-      cxx: [gcc-optimized@13.3.0]
-      fortran:  [gcc-optimized@13.3.0]
+      c: [ gcc@13.3.0 gcc@13.3.0x ]
+      cxx: [ gcc@13.3.0 gcc@13.3.0.x ]
+      fortran:  [ gcc@13.3.0 gcc@13.3.0x ]
       
 
   #all:
