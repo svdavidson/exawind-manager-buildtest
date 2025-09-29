@@ -68,11 +68,10 @@ packages:
   openfast:
     variants: +openmp +shared +rosco +fastfarm +netcdf
   openblas:
-    flags::
-      cflags: []
-      cxxflags: []
+    require: "%gcc@13.3.0x"
   all:
-    require: "%gcc@13.3.0"
+    #require: "%gcc@13.3.0"
+    prefer: "%gcc@13.3.0"
     providers:
       mpi: [openmpi]
       blas: [openblas]
