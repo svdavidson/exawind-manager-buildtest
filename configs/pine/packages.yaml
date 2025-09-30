@@ -11,12 +11,16 @@ packages:
           cxx: /hrtc/apps/devtools/spack/PINE/linux-rocky9-zen4/gcc-11.4.1/gcc-13.3.0-s6z5ak5dds7jmlohxs2bctxhyhgfwhgs/bin/g++
           fortran: /hrtc/apps/devtools/spack/PINE/linux-rocky9-zen4/gcc-11.4.1/gcc-13.3.0-s6z5ak5dds7jmlohxs2bctxhyhgfwhgs/bin/gfortran
         flags:
-          cflags: -fvisibility-inlines-hidden -fmessage-length=0 -march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast -Wno-error -fstack-protector-strong -fno-plt -ffunction-sections 
+          cflags: -fmessage-length=0 -march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast -Wno-error -fstack-protector-strong -fno-plt -ffunction-sections 
           cxxflags: -fvisibility-inlines-hidden -fmessage-length=0 -march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast -Wno-error -fstack-protector-strong -fno-plt -ffunction-sections 
           fflags: -march=native -mtune=native
           cppflags: -DNDEBUG
           ldflags: -lm
-        environment: {}
+        environment:
+          set:
+            AMReX_IPO: ON
+            AMReX_FLATTEN_FOR: ON
+            AMReX_HDF5_ASYNC: OFF
         extra_rpaths: []
 
 #    - spec: gcc@13.3.0x languages:='c,c++,fortran'
