@@ -14,13 +14,9 @@ packages:
           cflags: -fmessage-length=0 -march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast -Wno-error -fstack-protector-strong -fno-plt -ffunction-sections 
           cxxflags: -fvisibility-inlines-hidden -fmessage-length=0 -march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast -Wno-error -fstack-protector-strong -fno-plt -ffunction-sections 
           fflags: -march=native -mtune=native
-          cppflags: -DNDEBUG
+          cppflags: -DNDEBUG -DAMReX_IPO=ON -DAMReX_FLATTEN_FOR=ON -DAMReX_HDF5_ASYNC=OFF 
           ldflags: -lm
-        environment:
-          set:
-            AMReX_IPO: ON
-            AMReX_FLATTEN_FOR: ON
-            AMReX_HDF5_ASYNC: OFF
+        environment: {}
         extra_rpaths: []
 
 #    - spec: gcc@13.3.0x languages:='c,c++,fortran'
