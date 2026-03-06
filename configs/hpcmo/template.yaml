@@ -1,0 +1,7 @@
+spack:
+  concretizer:
+    unify: false
+    reuse: false
+  view: false
+  specs:
+    - 'exawind@master~amr_wind_gpu~nalu_wind_gpu ^amr-wind@3.6.0+netcdf+hdf5 %clang'

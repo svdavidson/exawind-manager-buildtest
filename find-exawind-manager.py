@@ -105,6 +105,8 @@ machine_list = {
     "pine": MachineData( lambda: os.environ["LMOD_SYSTEM_NAME"] == "PINE", "pine-1"),
     # Pangea4
     "pangea4": MachineData(lambda: is_pangea4(socket.gethostname()), "p4intlog01"),
+    # HPCMO (local AMD workstation)
+    "hpcmo": MachineData(lambda: socket.gethostname() == "shannon-desktop", "shannon-desktop"),
 }
 
 

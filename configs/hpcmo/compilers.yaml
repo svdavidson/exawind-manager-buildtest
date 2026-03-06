@@ -1,0 +1,17 @@
+compilers:
+- compiler:
+    paths:
+      cc: /opt/AMD/aocc-compiler-5.1.0/bin/clang
+      cxx: /opt/AMD/aocc-compiler-5.1.0/bin/clang++
+      f77: /opt/AMD/aocc-compiler-5.1.0/bin/flang
+      fc: /opt/AMD/aocc-compiler-5.1.0/bin/flang
+    operating_system: fedora43
+    target: x86_64
+    modules: []
+    environment: {}
+    extra_rpaths: []
+    flags:
+      cflags: -O3 -march=native -mtune=native -fPIC
+      cxxflags: -O3 -march=native -mtune=native -fPIC
+      fflags: -O3 -march=native -mtune=native
+    spec: clang@17.0.6

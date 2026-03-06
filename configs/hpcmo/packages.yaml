@@ -1,0 +1,33 @@
+packages:
+  amd-aocl:
+    externals:
+    - spec: amd-aocl@5.2.0
+      prefix: /opt/AMD/aocl/aocl-linux-aocc-5.2.0/aocc
+    buildable: false
+  blas:
+    require: "amd-aocl"
+  lapack:
+    require: "amd-aocl"
+  mpi:
+    require: 'openmpi@4.1.4'
+  openmpi:
+    require: "@4.1.4"
+    buildable: false
+    externals:
+    - spec: openmpi@4.1.4
+      prefix: <BUILD_DIR>/openmpi-4.1.4/
+  curl:
+    externals:
+    - spec: curl@8
+      prefix: /usr
+    buildable: False
+  all:
+    prefer:
+      - "%clang@17.0.6"
+    providers:
+      mpi: [openmpi]
+      blas: [amd-aocl]
+      lapack: [amd-aocl]
+      c: [clang]
+      cxx: [clang]
+      fortran: [clang]
