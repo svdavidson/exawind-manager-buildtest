@@ -1,13 +1,29 @@
 packages:
+  gcc:
+    externals:
+      - spec: gcc@15.2.1 languages='c,c++,fortran'
+        prefix: /usr
+        extra_attributes:
+          compilers:
+            c: /usr/bin/gcc
+            cxx: /usr/bin/g++
+            fortran: /usr/bin/gfortran
+    buildable: false
+  amd-aocc:
+    externals:
+      - spec: amd-aocc@5.1.0 languages='c,c++,fortran'
+        prefix: /opt/AMD/aocc-compiler-5.1.0
+        extra_attributes:
+          compilers:
+            c: /opt/AMD/aocc-compiler-5.1.0/bin/clang 
+            cxx: /opt/AMD/aocc-compiler-5.1.0/bin/clang++
+            fortran: /opt/AMD/aocc-compiler-5.1.0/bin/flang
+    buildable: false
   amd-aocl:
     externals:
     - spec: amd-aocl@5.2.0
       prefix: /opt/AMD/aocl/aocl-linux-aocc-5.2.0/aocc
     buildable: false
-  blas:
-    require: "amd-aocl"
-  lapack:
-    require: "amd-aocl"
   mpi:
     require: 'openmpi@4.1.4'
   openmpi:
@@ -18,7 +34,7 @@ packages:
       prefix: <BUILD_DIR>/openmpi-4.1.4/
   curl:
     externals:
-    - spec: curl@8
+    - spec: curl@8.15.0
       prefix: /usr
     buildable: False
   all:
@@ -26,8 +42,8 @@ packages:
       - "%clang@17.0.6"
     providers:
       mpi: [openmpi]
-      blas: [amd-aocl]
-      lapack: [amd-aocl]
-      c: [clang]
-      cxx: [clang]
-      fortran: [clang]
+      blas: [openblas, amd-aocl]
+      lapack: [openblas, amd-aocl]
+      c: [gcc, amd-aocc]
+      cxx: [gcc, amd-aocc]
+      fortran: [gcc, amd-aocc]
