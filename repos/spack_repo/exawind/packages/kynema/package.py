@@ -1,15 +1,17 @@
 from spack.package import *
-from spack_repo.builtin.packages.openturbine.package import Openturbine as bOpenturbine
+from spack_repo.builtin.packages.kynema.package import Kynema as bKynema
 from spack_repo.exawind.packages.ctest_package.package import *
 
 
-class Openturbine(bOpenturbine, CtestPackage):
+class Kynema(bKynema, CtestPackage):
     variant("asan", default=False, description="Turn on address sanitizer")
 
-    depends_on("suite-sparse@7.4:", when="+klu")
-    depends_on("netcdf-c@4.9:")
-    depends_on("yaml-cpp@0.6:")
+    depends_on("c", type="build")
 
+    depends_on("kokkos@4.6:4.7")
+    depends_on("kokkos-kernels@4.6:4.7")
+
+    requires("+klu")
     requires("+tests", when="+cdash_submit")
 
     def setup_build_environment(self, env):
@@ -21,7 +23,7 @@ class Openturbine(bOpenturbine, CtestPackage):
 
     def cmake_args(self):
         spec = self.spec
-        cmake_options = super(Openturbine, self).cmake_args()
+        cmake_options = super(Kynema, self).cmake_args()
 
         if spec.satisfies("dev_path=*"):
             cmake_options.append(self.define("CMAKE_EXPORT_COMPILE_COMMANDS", True))

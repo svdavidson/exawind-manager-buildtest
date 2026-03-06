@@ -1,6 +1,12 @@
 packages:
+  git:
+    require: "@=2.48.1"
+  curl:
+    require: "@=8.15.0"
   hypre:
-    require: "@=2.32.0"
+    require: "@=2.32.0+shared"
+  tar:
+    require: "zip=gzip"
   amr-wind:
     variants: +tiny_profile
   trilinos:

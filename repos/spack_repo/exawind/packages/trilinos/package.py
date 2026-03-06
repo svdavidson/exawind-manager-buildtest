@@ -9,7 +9,12 @@ from spack.package import *
 from spack_repo.builtin.packages.trilinos.package import Trilinos as bTrilinos
 
 class Trilinos(bTrilinos):
+    url = "https://github.com/trilinos/Trilinos/archive/refs/tags/16.2.0.tar.gz"
+    version("16.2.0", sha256="543aa56232d7c0cbe73705fab2d3b5524f11b15fef8917aa14de02d23a5ca418")
     variant("asan", default=False, description="Turn on address sanitizer")
+
+    depends_on("kokkos@=4.7.01", when="@16.2 +kokkos")
+    depends_on("kokkos-kernels@=4.7.01", when="@16.2 +kokkos")
 
     def flag_handler(self, name, flags):
         super().flag_handler(name, flags)
