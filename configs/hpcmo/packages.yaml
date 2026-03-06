@@ -8,6 +8,10 @@ packages:
             c: /usr/bin/gcc
             cxx: /usr/bin/g++
             fortran: /usr/bin/gfortran
+          flags:
+            cflags: -O3 -march=native -mtune=native -fPIC
+            cxxflags: -O3 -march=native -mtune=native -fPIC
+            fflags: -O3 -march=native -mtune=native
     buildable: false
   amd-aocc:
     externals:
@@ -42,6 +46,9 @@ packages:
     - spec: curl@8.15.0
       prefix: /usr
     buildable: False
+  hypre:
+    flags:
+      cflags: -O3 -march=native -mtune=native -fPIC -std=gnu17
   all:
     prefer:
       - "%clang@17.0.6"
