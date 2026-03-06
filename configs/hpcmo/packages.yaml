@@ -46,6 +46,11 @@ packages:
     - spec: curl@8.15.0
       prefix: /usr
     buildable: False
+  # GCC 15 removed implicit transitive header inclusion; force-include <cstdint>
+  # to fix 'uintptr_t does not name a type' errors in Trilinos bundled GTest
+  trilinos:
+    flags:
+      cxxflags: -include cstdint
   hypre:
     flags:
       cflags: -O3 -march=native -mtune=native -fPIC -std=gnu17
