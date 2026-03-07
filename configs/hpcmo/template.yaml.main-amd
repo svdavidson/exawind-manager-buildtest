@@ -4,7 +4,7 @@ spack:
     reuse: false
   view: false
   specs:
-    - 'amr-wind@3.8.1+openfast+netcdf+hdf5 %amd-aocc ^openfast@4.1.1+rosco+openmp+fastfarm ^amd-aocl'
+    - 'amr-wind@3.8.1+openfast+netcdf+hdf5 %aocc ^openfast@4.1.1+rosco+openmp+fastfarm ^amd-aocl'
 
     #- 'amr-wind@3.8.1+openfast+netcdf+hdf5 %gcc ^openfast@4.1.1+rosco+openmp+fastfarm'
 
