@@ -16,13 +16,13 @@ packages:
             cxxflags: -O3 -march=native -mtune=native -fPIC
             fflags: -O3 -march=native -mtune=native
     buildable: false
-  amd-aocc:
+  aocc:
     externals:
-      - spec: amd-aocc@5.1.0 languages='c,c++,fortran'
+      - spec: aocc@5.1.0 languages='c,c++,fortran'
         prefix: /opt/AMD/aocc-compiler-5.1.0
         extra_attributes:
           compilers:
-            c: /opt/AMD/aocc-compiler-5.1.0/bin/clang 
+            c: /opt/AMD/aocc-compiler-5.1.0/bin/clang
             cxx: /opt/AMD/aocc-compiler-5.1.0/bin/clang++
             fortran: /opt/AMD/aocc-compiler-5.1.0/bin/flang
     buildable: false
@@ -51,11 +51,11 @@ packages:
     buildable: False
   all:
     prefer:
-      - "%clang@17.0.6"
+      - "%aocc@5.1.0"
     providers:
       mpi: [openmpi]
-      blas: [openblas, amd-aocl]
-      lapack: [openblas, amd-aocl]
-      c: [gcc, amd-aocc]
-      cxx: [gcc, amd-aocc]
-      fortran: [gcc, amd-aocc]
+      blas: [amd-aocl, openblas]
+      lapack: [amd-aocl, openblas]
+      c: [gcc, aocc]
+      cxx: [gcc, aocc]
+      fortran: [gcc, aocc]
