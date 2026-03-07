@@ -1,0 +1,61 @@
+packages:
+  gcc:
+    externals:
+      - spec: gcc@15.2.1 languages='c,c++,fortran'
+        prefix: /usr
+        extra_attributes:
+          compilers:
+            c: /usr/bin/gcc
+            cxx: /usr/bin/g++
+            fortran: /usr/bin/gfortran
+          flags:
+            cflags: -O3 -march=native -mtune=native -fPIC
+            # -include cstdint: GCC 15 no longer transitively includes <cstdint>,
+            # breaking Trilinos bundled GTest ('uintptr_t does not name a type')
+            #cxxflags: -O3 -march=native -mtune=native -fPIC -include cstdint
+            cxxflags: -O3 -march=native -mtune=native -fPIC
+            fflags: -O3 -march=native -mtune=native
+    buildable: false
+  aocc:
+    externals:
+      - spec: aocc@5.1.0 languages='c,c++,fortran'
+        prefix: /opt/AMD/aocc-compiler-5.1.0
+        extra_attributes:
+          compilers:
+            c: /opt/AMD/aocc-compiler-5.1.0/bin/clang
+            cxx: /opt/AMD/aocc-compiler-5.1.0/bin/clang++
+            fortran: /opt/AMD/aocc-compiler-5.1.0/bin/flang
+    buildable: false
+  amd-aocl:
+    externals:
+    - spec: amd-aocl@5.2.0
+      prefix: /opt/AMD/aocl/aocl-linux-aocc-5.2.0/aocc
+    buildable: false
+  mpi:
+    require: 'openmpi@5.0.10'
+  cmake:
+    externals:
+    - spec: cmake@3.31.10
+      prefix: /usr
+    buildable: false
+  openmpi:
+    require: "@5.0.10"
+    buildable: false
+    externals:
+    - spec: openmpi@5.0.10
+      prefix: <BUILD_DIR>/openmpi-5.0.10/
+  curl:
+    externals:
+    - spec: curl@8.15.0
+      prefix: /usr
+    buildable: False
+  all:
+    prefer:
+      - "%aocc@5.1.0"
+    providers:
+      mpi: [openmpi]
+      blas: [amd-aocl, openblas]
+      lapack: [amd-aocl, openblas]
+      c: [gcc, aocc]
+      cxx: [gcc, aocc]
+      fortran: [gcc, aocc]
