@@ -49,6 +49,10 @@ packages:
     - spec: curl@8.15.0
       prefix: /usr
     buildable: False
+  blas:
+    require: amd-aocl
+  lapack:
+    require: amd-aocl
   all:
     prefer:
       - "%aocc@5.1.0"
