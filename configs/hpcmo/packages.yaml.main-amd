@@ -31,6 +31,16 @@ packages:
     - spec: amd-aocl@5.2.0
       prefix: /opt/AMD/aocl/aocl-linux-aocc-5.2.0/aocc
     buildable: false
+  amdblis:
+    externals:
+    - spec: amdblis@5.2
+      prefix: /opt/AMD/aocl/aocl-linux-aocc-5.2.0/aocc
+    buildable: false
+  amdlibflame:
+    externals:
+    - spec: amdlibflame@5.2
+      prefix: /opt/AMD/aocl/aocl-linux-aocc-5.2.0/aocc
+    buildable: false
   mpi:
     require: 'openmpi@5.0.10'
   cmake:
@@ -50,16 +60,16 @@ packages:
       prefix: /usr
     buildable: False
   blas:
-    require: amd-aocl
+    require: amdblis
   lapack:
-    require: amd-aocl
+    require: amdlibflame
   all:
     prefer:
       - "%aocc@5.1.0"
     providers:
       mpi: [openmpi]
-      blas: [amd-aocl, openblas]
-      lapack: [amd-aocl, openblas]
+      blas: [amdblis, openblas]
+      lapack: [amdlibflame, openblas]
       c: [gcc, aocc]
       cxx: [gcc, aocc]
       fortran: [gcc, aocc]
