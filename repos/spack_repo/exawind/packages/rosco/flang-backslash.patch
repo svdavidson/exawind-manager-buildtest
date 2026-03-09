@@ -1,0 +1,12 @@
+--- a/rosco/controller/src/Controllers.f90
++++ b/rosco/controller/src/Controllers.f90
+@@ -250,9 +250,9 @@ CONTAINS
+         ENDIF
+
+         ! Optimal Tip-Speed-Ratio tracking controller (reference generated in subroutine ComputeVariablesSetpoints)
+-        IF ((CntrPar%VS_ControlMode == VS_Mode_WSE_TSR) .OR. \
+-            (CntrPar%VS_ControlMode == VS_Mode_Power_TSR) .OR. \
+-            (CntrPar%VS_ControlMode == VS_Mode_Torque_TSR)) THEN
++        IF ((CntrPar%VS_ControlMode == VS_Mode_WSE_TSR) .OR. &
++            (CntrPar%VS_ControlMode == VS_Mode_Power_TSR) .OR. &
++            (CntrPar%VS_ControlMode == VS_Mode_Torque_TSR)) THEN
