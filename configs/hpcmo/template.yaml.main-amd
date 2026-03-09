@@ -4,7 +4,7 @@ spack:
     reuse: false
   view: false
   specs:
-    - 'amr-wind@3.8.1+openfast+netcdf+hdf5 %aocc ^openfast@4.1.1+rosco+openmp+fastfarm ^rosco@2.10.4'
+    - 'amr-wind@3.8.1+openfast+netcdf+hdf5 %aocc ^openfast@4.1.1+rosco+openmp+fastfarm ^rosco@main'
 
     #- 'amr-wind@3.8.1+openfast+netcdf+hdf5 %aocc ^openfast@4.1.1+rosco+openmp+fastfarm ^hdf5~fortran'
     #- 'exawind@master~amr_wind_gpu~nalu_wind_gpu~nalu_wind ^amr-wind@3.6.0+openfast+waves2amr+netcdf+hdf5 ^openfast@4.1.1+rosco+openmp+fastfarm %clang'
