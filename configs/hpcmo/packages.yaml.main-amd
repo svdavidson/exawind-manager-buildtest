@@ -54,6 +54,9 @@ packages:
     externals:
     - spec: openmpi@5.0.10
       prefix: <BUILD_DIR>/openmpi-5.0.10/
+      extra_attributes:
+        flags:
+          fflags: -I<BUILD_DIR>/openmpi-5.0.10/lib
   curl:
     externals:
     - spec: curl@8.15.0
