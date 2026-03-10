@@ -17,18 +17,21 @@ packages:
             fflags: -O3 -march=native -mtune=native
     buildable: false
   mpi:
-    require: 'openmpi@4.1.4'
+    require: 'openmpi@5.0.10'
   cmake:
     externals:
     - spec: cmake@3.31.10
       prefix: /usr
     buildable: false
   openmpi:
-    require: "@4.1.4"
+    require: "@5.0.10"
     buildable: false
     externals:
-    - spec: openmpi@4.1.4
-      prefix: <BUILD_DIR>/openmpi-4.1.4/
+    - spec: openmpi@5.0.10
+      prefix: <BUILD_DIR>/openmpi-5.0.10/
+      extra_attributes:
+        flags:
+          fflags: -I<BUILD_DIR>/openmpi-5.0.10/lib
   curl:
     externals:
     - spec: curl@8.15.0
