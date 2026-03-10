@@ -39,7 +39,7 @@ packages:
     buildable: False
   all:
     prefer:
-      - "%gcc"
+      - "%gcc@15.2.1"
     providers:
       mpi: [openmpi]
       blas: [openblas]
