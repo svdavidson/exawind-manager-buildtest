@@ -66,6 +66,8 @@ packages:
     require: amdblis
   lapack:
     require: amdlibflame
+  h5z-zfp:
+    variants: ~fortran
   all:
     prefer:
       - "%aocc@5.1.0"
