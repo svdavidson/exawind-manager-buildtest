@@ -100,9 +100,9 @@ machine_list = {
     # General
     "darwin": MachineData(lambda: sys.platform == "darwin", "darwin.nodomain.gov"),
     # Pecan
-    "pecan": MachineData( lambda: os.environ["LMOD_SYSTEM_NAME"] == "PECAN", "pecan-1"),
+    "pecan": MachineData( lambda: ".pecan.cluster" in socket.gethostname(), "pecan-1"),
     # Pine
-    "pine": MachineData( lambda: os.environ["LMOD_SYSTEM_NAME"] == "PINE", "pine-1"),
+    "pine": MachineData( lambda: ".pine.cluster" in socket.gethostname(), "pine-2"),
     # Pangea4
     "pangea4": MachineData(lambda: is_pangea4(socket.gethostname()), "p4intlog01"),
     # HPCMO (local AMD workstation)
