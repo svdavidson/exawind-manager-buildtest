@@ -49,6 +49,8 @@ packages:
     require: "openblas"
   lapack:
     require: "openblas"
+  h5z-zfp:
+    variants: ~fortran
   openmpi:
     require: "@5.0.10"
     buildable: false
