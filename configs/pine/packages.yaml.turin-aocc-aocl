@@ -35,18 +35,20 @@ packages:
 
   amd-aocl:
     externals:
-    - spec: amd-aocl@5.2.0
-      prefix: /opt/AMD/aocl/aocl-linux-aocc-5.2.0/aocc
+    - spec: amd-aocl@5.1.0
+      prefix: /hrtc/apps/devtools/AMD/aocl/5.1.0/aocc_5.0
+      modules:
+      - aocl/5.1.0-aocc
     buildable: false
   amdblis:
     externals:
-    - spec: amdblis@5.2
-      prefix: /opt/AMD/aocl/aocl-linux-aocc-5.2.0/aocc
+    - spec: amdblis@5.1
+      prefix: /hrtc/apps/devtools/AMD/aocl/5.1.0/aocc_5.0
     buildable: false
   amdlibflame:
     externals:
-    - spec: amdlibflame@5.2
-      prefix: /opt/AMD/aocl/aocl-linux-aocc-5.2.0/aocc
+    - spec: amdlibflame@5.1
+      prefix:  /hrtc/apps/devtools/AMD/aocl/5.1.0/aocc_5.0
     buildable: false
 
   mpi:
