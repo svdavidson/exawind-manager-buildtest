@@ -100,6 +100,10 @@ packages:
       extra_attributes:
         flags:
           fflags: -I/hrtc/apps/mpi/openmpi/x86_64/rocky9/5.0.5/aocc/5.1.0/nocuda/lib
+        environment:
+          prepend_path:
+            LD_LIBRARY_PATH: /hrtc/apps/mpi/openmpi/x86_64/rocky9/5.0.5/aocc/5.1.0/nocuda/lib/
+            
   nalu-wind:
     require: +trilinos-solvers
   amr-wind:

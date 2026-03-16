@@ -60,6 +60,10 @@ packages:
       extra_attributes:
         flags:
           fflags: -I<BUILD_DIR>/openmpi-5.0.10/lib
+        environment:
+          prepend_path:
+            LD_LIBRARY_PATH: <BUILD_DIR>/openmpi-5.0.10/lib
+            
   nalu-wind:
     require: +trilinos-solvers
   amr-wind:
