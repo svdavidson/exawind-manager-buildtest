@@ -3,10 +3,19 @@ spack:
     unify: false
     reuse: false 
   view: false
+  modules:
+    default:
+      roots:
+        lmod: <BUILD_DIR>/modules/
+      lmod:
+        core_compilers:
+          - gcc@15.2.0
+        all:
+          suffixes:
+            all: exawind-pine
   specs:
     # AMR-Wind with gcc and OpenBLAS
     - 'amr-wind@3.8.1+openfast+netcdf+hdf5 %gcc ^openfast@4.1.1+rosco+openmp+fastfarm'
-
 
     # - 'exawind@master~amr_wind_gpu~nalu_wind_gpu ^amr-wind@3.6.0+openfast+waves2amr+netcdf+hdf5 ^openfast@4.1.1+rosco+openmp+fastfarm %gcc'
     #- 'exawind@master~amr_wind_gpu~nalu_wind_gpu ^amr-wind@3.6.0+openfast+waves2amr+netcdf+hdf5 ^openfast@4.1.1+rosco+openmp+fastfarm %openmpi'
