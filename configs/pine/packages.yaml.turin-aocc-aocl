@@ -51,10 +51,15 @@ packages:
       prefix:  /hrtc/apps/devtools/AMD/aocl/5.1.0/aocc_5.0
     buildable: false
 
+  #mpi:
+  #  require: 'openmpi@5.0.10'
+
   mpi:
-    require: 'openmpi@5.0.10'
-  ucx:
-    variants: +verbs
+    require: 'openmpi@5.0.5'
+
+  #ucx:
+  #  variants: +verbs
+
   curl:
     require: "@7.76.1"
     externals:
@@ -74,17 +79,27 @@ packages:
   h5z-zfp:
     variants: ~fortran
 
+  #openmpi:
+  #  require: "@5.0.10"
+  #  buildable: false
+  #  externals:
+  #  - spec: openmpi@5.0.10
+  #    prefix: <BUILD_DIR>/openmpi-5.0.10/
+  #    extra_attributes:
+  #      flags:
+  #        fflags: -I<BUILD_DIR>/openmpi-5.0.10/lib
+  #      extra_rpaths:
+  #        - <BUILD_DIR>/openmpi-5.0.10/lib
+
   openmpi:
-    require: "@5.0.10"
+    require: "@5.0.5"
     buildable: false
     externals:
-    - spec: openmpi@5.0.10
-      prefix: <BUILD_DIR>/openmpi-5.0.10/
+    - spec: openmpi@5.0.5
+      prefix: /hrtc/apps/mpi/openmpi/x86_64/rocky9/5.0.5/aocc/5.1.0/nocuda
       extra_attributes:
         flags:
-          fflags: -I<BUILD_DIR>/openmpi-5.0.10/lib
-        extra_rpaths:
-          - <BUILD_DIR>/openmpi-5.0.10/lib
+          fflags: -I/hrtc/apps/mpi/openmpi/x86_64/rocky9/5.0.5/aocc/5.1.0/nocuda/lib
   nalu-wind:
     require: +trilinos-solvers
   amr-wind:
