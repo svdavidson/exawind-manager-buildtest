@@ -83,6 +83,8 @@ packages:
       extra_attributes:
         flags:
           fflags: -I<BUILD_DIR>/openmpi-5.0.10/lib
+        extra_rpaths:
+          - <BUILD_DIR>/openmpi-5.0.10/lib
   nalu-wind:
     require: +trilinos-solvers
   amr-wind:
