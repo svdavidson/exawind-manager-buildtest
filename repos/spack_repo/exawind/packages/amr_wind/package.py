@@ -15,12 +15,31 @@ class AmrWind(bAmrWind, CtestPackage):
     variant("asan", default=False, description="Turn on address sanitizer")
     variant("clangtidy", default=False, description="Turn on clang-tidy")
 
-    patch("amr-wind-3.9.0-odr-inline.patch", when="@3.9.0+openfast")
-
     depends_on("netcdf-c+mpi", when="+netcdf")
     requires("+tests", when="+cdash_submit")
     requires("+mpi", when="+kynema")
     requires("+mpi", when="+openfast")
+
+    def patch(self):
+        # Fix ODR violations introduced by upstream PR #1862 (issue #1868).
+        # Non-template and explicit specialization functions defined in headers
+        # must be inline when included by multiple translation units.
+        if self.spec.satisfies("@3.9.0+openfast"):
+            filter_file(
+                r'^void swap_epsilon\(vs::Vector& eps\)',
+                'inline void swap_epsilon(vs::Vector& eps)',
+                'amr-wind/wind_energy/actuator/turbine/external/turbine_external_utils.H'
+            )
+            filter_file(
+                r'^void determine_influenced_procs<TurbineFast>\(',
+                'inline void determine_influenced_procs<TurbineFast>(',
+                'amr-wind/wind_energy/actuator/turbine/fast/turbine_fast_ops.H'
+            )
+            filter_file(
+                r'^void determine_root_proc<TurbineFast>\(',
+                'inline void determine_root_proc<TurbineFast>(',
+                'amr-wind/wind_energy/actuator/turbine/fast/turbine_fast_ops.H'
+            )
 
     def setup_build_environment(self, env):
         spec = self.spec
