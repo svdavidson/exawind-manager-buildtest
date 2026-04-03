@@ -15,7 +15,7 @@ spack:
             all: exawind-pine
   specs:
     # AMR-Wind with gcc and OpenBLAS
-    - 'amr-wind@3.8.1+openfast+netcdf+hdf5 %gcc ^openfast@4.1.1+rosco+openmp+fastfarm'
+    - 'amr-wind@3.9.0+openfast+netcdf+hdf5 %gcc ^openfast@4.2.0+rosco+openmp+fastfarm'
 
     # - 'exawind@master~amr_wind_gpu~nalu_wind_gpu ^amr-wind@3.6.0+openfast+waves2amr+netcdf+hdf5 ^openfast@4.1.1+rosco+openmp+fastfarm %gcc'
     #- 'exawind@master~amr_wind_gpu~nalu_wind_gpu ^amr-wind@3.6.0+openfast+waves2amr+netcdf+hdf5 ^openfast@4.1.1+rosco+openmp+fastfarm %openmpi'
