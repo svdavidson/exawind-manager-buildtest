@@ -15,6 +15,8 @@ class AmrWind(bAmrWind, CtestPackage):
     variant("asan", default=False, description="Turn on address sanitizer")
     variant("clangtidy", default=False, description="Turn on clang-tidy")
 
+    patch("amr-wind-3.9.0-odr-inline.patch", when="@3.9.0+openfast")
+
     depends_on("netcdf-c+mpi", when="+netcdf")
     requires("+tests", when="+cdash_submit")
     requires("+mpi", when="+kynema")
