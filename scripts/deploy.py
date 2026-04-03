@@ -50,6 +50,7 @@ def get_env_name(args):
 
 def environment_setup(args, env_name):
     out=manager("find-machine")
+    print(out, end="")
     project, machine = out.strip().split()
     template = os.path.expandvars("$EXAWIND_MANAGER/configs/{}/template.yaml".format(machine))
 
@@ -57,10 +58,10 @@ def environment_setup(args, env_name):
         template = os.path.expandvars("$EXAWIND_MANAGER/configs/base/template.yaml")
 
     if args.overwrite and ev.exists(env_name):
-        env("rm", env_name, "-y")
+        env("rm", env_name, "-y", capture=False)
 
     if not ev.exists(env_name):
-        manager("create-env", "-n", env_name, "-y", template)
+        print(manager("create-env", "-n", env_name, "-y", template), end="")
 
     print("Using env:", ev.read(env_name).path)
 
@@ -99,11 +100,12 @@ def configure_env(args, env_name):
 
         accumulator.update_configs()
 
-        concretize("--force")
         if args.depfile:
-            env("depfile", "-o", os.path.join(e.path, "Makefile"))
+            concretize("--force", capture=False)
+            env("depfile", "-o", os.path.join(e.path, "Makefile"), capture=False)
         if args.pre_fetch:
-            fetch()
+            concretize("--force", capture=False)
+            fetch(capture=False)
 
 def make_args(env, ranks):
     args = [
@@ -116,10 +118,10 @@ def local_install(args, env_name):
     with ev.read(env_name) as e:
         os.chdir(e.path)
         if args.depfile:
-            print("make",*make_args(e, args.ranks))
+            print("make", *make_args(e, args.ranks))
             make(*make_args(e, args.ranks))
         else:
-            spack_install()
+            spack_install(f"-j {args.ranks}", capture=False)
 
 def create_slurm_file(args, env_name):
     e = ev.read(env_name)
@@ -140,19 +142,16 @@ def create_slurm_file(args, env_name):
 
 def module_gen(args, env_name):
     with ev.read(env_name) as e:
-        module("tcl", "refresh", "-y")
+        module("tcl", "refresh", "-y", capture=False)
 
 
 if __name__ == "__main__":
     args = parser.parse_args()
     env_name = get_env_name(args)
     environment_setup(args, env_name)
-    print("configure args")
     configure_env(args, env_name)
     if args.slurm_args:
-        print("create slurm args")
         create_slurm_file(args, env_name)
     else:
-        print("install")
         local_install(args, env_name)
         module_gen(args, env_name)
