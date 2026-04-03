@@ -55,6 +55,8 @@ class AmrWind(bAmrWind, CtestPackage):
         if spec.satisfies("+clangtidy"):
             cmake_options.append(self.define("AMR_WIND_ENABLE_CLANG_TIDY", True))
 
+        cmake_options.append(self.define_from_variant("AMR_WIND_ENABLE_UNIT_TESTS", "tests"))
+
         if spec.satisfies("+tests"):
             cmake_options.append(self.define("AMR_WIND_TEST_WITH_FCOMPARE", True))
             cmake_options.append(self.define("AMR_WIND_SAVE_GOLDS", True))
