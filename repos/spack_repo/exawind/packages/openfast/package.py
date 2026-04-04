@@ -12,7 +12,6 @@ from spack_repo.builtin.packages.openfast.package import Openfast as bOpenfast
 class Openfast(bOpenfast):
 
     def patch(self):
-        super().patch()
         # Fix Fortran standard violation in TSsubs.f90: the OMP THREADPRIVATE
         # directive for TRH appears before TRH is declared, which is rejected
         # by strict Fortran compilers (e.g. AOCC/Flang). Swap the declaration
