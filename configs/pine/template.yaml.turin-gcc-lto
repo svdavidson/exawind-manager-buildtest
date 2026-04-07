@@ -1,0 +1,18 @@
+spack:
+  concretizer:
+    unify: false
+    reuse: false
+  view: false
+  modules:
+    default:
+      roots:
+        lmod: <BUILD_DIR>/modules/
+      lmod:
+        core_compilers:
+          - gcc@15.2.0
+        all:
+          suffixes:
+            all: exawind-pine
+  specs:
+    # AMR-Wind with gcc, OpenBLAS, and link-time optimization (-flto=auto)
+    - 'amr-wind@3.9.0+openfast+netcdf+hdf5~tests %gcc ^openfast@4.2.0+rosco+openmp+fastfarm'

@@ -1,0 +1,18 @@
+spack:
+  concretizer:
+    unify: false
+    reuse: false
+  view: false
+  modules:
+    default:
+      roots:
+        lmod: <BUILD_DIR>/modules/
+      lmod:
+        core_compilers:
+          - gcc@15.2.0
+        all:
+          suffixes:
+            all: exawind-pine
+  specs:
+    # AMR-Wind with gcc and OpenBLAS - tiny_profile disabled for lower overhead
+    - 'amr-wind@3.9.0+openfast+netcdf+hdf5~tests~tiny_profile %gcc ^openfast@4.2.0+rosco+openmp+fastfarm'
