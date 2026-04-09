@@ -11,11 +11,11 @@ packages:
           cxx: /hrtc/apps/devtools/spack/PINE/linux-rocky9-zen4/gcc-11.4.1/gcc-15.2.0-yjg57ccwbgm6yt4ytk3tc63jjcq5qwnx/bin/g++
           fortran: /hrtc/apps/devtools/spack/PINE/linux-rocky9-zen4/gcc-11.4.1/gcc-15.2.0-yjg57ccwbgm6yt4ytk3tc63jjcq5qwnx/bin/gfortran
         flags:
-          cflags: -fmessage-length=0 -march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast -flto=auto -Wno-error -fstack-protector-strong -fno-plt -ffunction-sections
-          cxxflags: -fvisibility-inlines-hidden -fmessage-length=0 -march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast -flto=auto -Wno-error -fstack-protector-strong -fno-plt -ffunction-sections
-          fflags: -march=native -mtune=native -flto=auto
+          cflags: -fmessage-length=0 -march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast -flto -Wno-error -fstack-protector-strong -fno-plt -ffunction-sections
+          cxxflags: -fvisibility-inlines-hidden -fmessage-length=0 -march=native -mtune=native -ftree-vectorize -fPIC -pipe -Ofast -flto -Wno-error -fstack-protector-strong -fno-plt -ffunction-sections
+          fflags: -march=native -mtune=native -flto
           cppflags: -DNDEBUG -DAMReX_IPO=ON -DAMReX_FLATTEN_FOR=ON -DAMReX_HDF5_ASYNC=OFF
-          ldflags: -lm -flto=auto
+          ldflags: -lm -flto
         environment: {}
         extra_rpaths: []
   mpi:
