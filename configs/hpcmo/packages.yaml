@@ -1,28 +1,30 @@
 packages:
   gcc:
     externals:
+      # Use the gcc-15 compat toolchain (dnf install gcc15 gcc15-c++ gcc15-gfortran).
+      # The Fedora system gcc rolled to 16, which miscompiles OpenMPI and several deps
+      # (e.g. libunistring); gcc-15 is version-locked so it won't drift.
       - spec: gcc@15.2.1 languages='c,c++,fortran'
         prefix: /usr
         extra_attributes:
           compilers:
-            c: /usr/bin/gcc
-            cxx: /usr/bin/g++
-            fortran: /usr/bin/gfortran
+            c: /usr/bin/gcc-15
+            cxx: /usr/bin/g++-15
+            fortran: /usr/bin/gfortran-15
           flags:
             cflags: -O3 -march=native -mtune=native -fPIC
             # -include cstdint: GCC 15 no longer transitively includes <cstdint>,
             # breaking Trilinos bundled GTest ('uintptr_t does not name a type')
-            #cxxflags: -O3 -march=native -mtune=native -fPIC -include cstdint
-            cxxflags: -O3 -march=native -mtune=native -fPIC
+            cxxflags: -O3 -march=native -mtune=native -fPIC -include cstdint
             fflags: -O3 -march=native -mtune=native
     buildable: false
   mpi:
     require: 'openmpi@5.0.10'
   cmake:
-    externals:
-    - spec: cmake@3.31.10
-      prefix: /usr
-    buildable: false
+    # Build CMake in Spack, constrained to < 4. The system CMake rolled to 4.x, which
+    # removed compatibility with cmake_minimum_required < 3.5 and breaks old pinned deps
+    # (snappy@1.2.1, yaml-cpp@0.6.3). A Spack-built 3.x is reproducible and drift-proof.
+    require: '@:3'
   openmpi:
     require: "@5.0.10"
     buildable: false
