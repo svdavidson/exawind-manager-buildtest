@@ -33,7 +33,7 @@ packages:
 #        extra_rpaths: []
 
   mpi:
-    require: 'openmpi@4.1.4'
+    require: 'openmpi@5.0.10'
     #require: 'openmpi@5.0.5'
   mpich:
     variants: netmod=ucx device=ch4 +slurm +hydra
@@ -55,11 +55,11 @@ packages:
   lapack:
     require: "openblas"
   openmpi:
-    require: "@4.1.4"
+    require: "@5.0.10"
     buildable: false
     externals:
-    - spec: openmpi@4.1.4
-      prefix: <BUILD_DIR>/openmpi-4.1.4/
+    - spec: openmpi@5.0.10
+      prefix: <BUILD_DIR>/openmpi-5.0.10/
     - spec: openmpi@5.0.5
       prefix: /hrtc/apps/mpi/openmpi/x86_64/rocky9/5.0.5/gcc/13.3.0/nocuda/
   nalu-wind:
