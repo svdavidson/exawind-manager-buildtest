@@ -39,6 +39,14 @@ packages:
     - spec: curl@8.15.0
       prefix: /usr
     buildable: False
+  libunistring:
+    # Use the system libunistring (built for the current glibc). Building the newer
+    # 1.4.1 from source fails on glibc 2.43 (bundled gnulib stdlib.h vs type-generic
+    # bsearch). libidn2 imposes no version constraint, so system 1.1 satisfies the DAG.
+    externals:
+    - spec: libunistring@1.1
+      prefix: /usr
+    buildable: false
   all:
     prefer:
       - "%gcc@15.2.1"
