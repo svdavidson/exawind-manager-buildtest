@@ -3,6 +3,16 @@ spack:
     unify: false
     reuse: false 
   view: false
+  modules:
+    default:
+      roots:
+        lmod: <BUILD_DIR>/modules/
+      lmod:
+        core_compilers:
+          - gcc@13.2.0
+        all:
+          suffixes:
+            all: exawind-pangea4
   specs:
     # AMR-Wind 3.9.1 + OpenFAST 4.2.1 with gcc and OpenBLAS
     - 'amr-wind@3.9.1+openfast+waves2amr+netcdf+hdf5+openmp %gcc ^openfast@4.2.1+netcdf+pic+rosco+openmp+fastfarm'
