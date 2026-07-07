@@ -29,6 +29,11 @@ packages:
       prefix: /usr
   nalu-wind:
     require: +trilinos-solvers
+  hdf5:
+    # No Fortran bindings: AMR-Wind uses HDF5 via the C API only. The Fortran
+    # bindings would compile USE mpi against cray-mpich's gfortran-10.3 mpi.mod,
+    # which gfortran-13.2.0 can't read. hdf5+mpi C interface uses mpi.h (ABI-safe).
+    variants: ~fortran
   amr-wind:
     variants: +tiny_profile +openfast +netcdf
   openfast:
